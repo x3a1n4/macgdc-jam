@@ -1,7 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3g1ff7yaxi3i"]
+[gd_scene load_steps=4 format=3 uid="uid://b3g1ff7yaxi3i"]
 
 [ext_resource type="PackedScene" uid="uid://cibvm08yroew4" path="res://assets/character/characterv2.glb" id="1_agfs1"]
+[ext_resource type="Script" uid="uid://co4e5rfmkcrs3" path="res://scripts/character/charactercontroller.gd" id="1_rkhd4"]
 
-[node name="Character" type="Node3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_agfs1"]
+radius = 1.4
+height = 5.0
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_rkhd4")
 
 [node name="characterv2" parent="." instance=ExtResource("1_agfs1")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+shape = SubResource("CapsuleShape3D_agfs1")

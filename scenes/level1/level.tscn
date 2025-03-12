@@ -1,3 +1,41 @@
-[gd_scene format=3 uid="uid://c03d1tc43rwk8"]
+[gd_scene load_steps=8 format=3 uid="uid://c03d1tc43rwk8"]
+
+[ext_resource type="PackedScene" uid="uid://b3g1ff7yaxi3i" path="res://scenes/character.tscn" id="1_nprql"]
+[ext_resource type="Texture2D" uid="uid://dtll26w8bpcmq" path="res://assets/skies/autumn_field_puresky_4k.exr" id="2_thcxp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7606u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7606u"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3ifb4"]
+panorama = ExtResource("2_thcxp")
+
+[sub_resource type="Sky" id="Sky_qa7bc"]
+sky_material = SubResource("PanoramaSkyMaterial_3ifb4")
+
+[sub_resource type="Environment" id="Environment_q0hxv"]
+background_mode = 2
+background_color = Color(0.808998, 0.808998, 0.808998, 1)
+sky = SubResource("Sky_qa7bc")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
 
 [node name="Game" type="Node3D"]
+
+[node name="Character" parent="." instance=ExtResource("1_nprql")]
+transform = Transform3D(0.998788, 0, 0, 0, 0.998788, 0, 0, 0, 0.998788, 0.00108337, 1.77213, -0.00901508)
+
+[node name="TempGround" type="MeshInstance3D" parent="."]
+transform = Transform3D(28.5949, 0, 0, 0, 1.00165, 0, 0, 0, 35.3885, 0, 0, 0)
+mesh = SubResource("BoxMesh_7606u")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TempGround"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TempGround/StaticBody3D"]
+shape = SubResource("BoxShape3D_7606u")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.616409, 0.154116, -0.772197, 0.0386283, 0.973561, 0.225139, 0.786478, -0.168607, 0.594158, -9.54767, 13.9379, 18.3841)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_q0hxv")

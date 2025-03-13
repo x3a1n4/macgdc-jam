@@ -6,10 +6,15 @@ extends CharacterBody3D
 # The downward acceleration when in the air, in meters per second squared.
 @export var fall_acceleration = 75
 
+# todo:
+# turn smoothly
+# jump
+
 var target_velocity = Vector3.ZERO
 
 func _physics_process(delta):
 	# We create a local variable to store the input direction.
+#region Lateral Movement
 	var direction = Vector3.ZERO
 
 	# We check for each move input and update the direction accordingly.
@@ -32,6 +37,12 @@ func _physics_process(delta):
 	# Ground Velocity
 	target_velocity.x = direction.x * speed
 	target_velocity.z = direction.z * speed
+
+#endregion
+
+#region Jump and Glide
+	
+#endregion
 
 	# Vertical Velocity
 	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity

@@ -23,7 +23,7 @@ ambient_light_color = Color(1, 1, 1, 1)
 [node name="Game" type="Node3D"]
 
 [node name="Character" parent="." instance=ExtResource("1_nprql")]
-transform = Transform3D(0.998788, 0, 0, 0, 0.998788, 0, 0, 0, 0.998788, 0.00108337, 1.77213, -0.00901508)
+transform = Transform3D(0.998788, 0, 0, 0, 0.998788, 0, 0, 0, 0.998788, 0.00108337, 0.647735, -0.00901508)
 
 [node name="TempGround" type="MeshInstance3D" parent="."]
 transform = Transform3D(28.5949, 0, 0, 0, 1.00165, 0, 0, 0, 35.3885, 0, 0, 0)
@@ -35,7 +35,13 @@ mesh = SubResource("BoxMesh_7606u")
 shape = SubResource("BoxShape3D_7606u")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.616409, 0.154116, -0.772197, 0.0386283, 0.973561, 0.225139, 0.786478, -0.168607, 0.594158, -9.54767, 13.9379, 18.3841)
+transform = Transform3D(0.939693, 0.262003, -0.219846, 0, 0.642788, 0.766044, 0.34202, -0.719846, 0.604023, -6.44446, 22.6215, 21.1607)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_q0hxv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.208661, 0.964506, 0.161829, 0.596846, -0.0054977, 0.802337, 0.774748, 0.264004, -0.574515, 8.93333, 11.3356, -12.2998)
+shadow_enabled = true
+shadow_normal_bias = 10.0
+directional_shadow_blend_splits = true

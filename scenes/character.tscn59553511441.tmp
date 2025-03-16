@@ -1,0 +1,167 @@
+[gd_scene load_steps=17 format=3 uid="uid://b3g1ff7yaxi3i"]
+
+[ext_resource type="PackedScene" uid="uid://cibvm08yroew4" path="res://assets/character/characterv2.glb" id="1_agfs1"]
+[ext_resource type="Script" uid="uid://co4e5rfmkcrs3" path="res://scripts/character/charactercontroller.gd" id="1_rkhd4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_agfs1"]
+radius = 1.4
+height = 5.0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lrhn5"]
+animation = &"Fly"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_my7n2"]
+animation = &"Jump_Into_Fly"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dp8ca"]
+animation = &"Landing"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rkhd4"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0lw5n"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_rkhd4"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_rkhd4")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_0lw5n")
+blend_point_1/pos = 1.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a5ia6"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0dpix"]
+advance_mode = 2
+advance_condition = &"landing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lrhn5"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_my7n2"]
+advance_mode = 2
+advance_condition = &"jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dp8ca"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_lrhn5"]
+states/Fly/node = SubResource("AnimationNodeAnimation_lrhn5")
+states/Fly/position = Vector2(177, 24)
+states/Jump_Into_Fly/node = SubResource("AnimationNodeAnimation_my7n2")
+states/Jump_Into_Fly/position = Vector2(68, 100)
+states/Landing/node = SubResource("AnimationNodeAnimation_dp8ca")
+states/Landing/position = Vector2(335, 100)
+states/Run/node = SubResource("AnimationNodeBlendSpace1D_rkhd4")
+states/Run/position = Vector2(177, 215)
+states/Start/position = Vector2(-233, 215)
+transitions = ["Jump_Into_Fly", "Fly", SubResource("AnimationNodeStateMachineTransition_a5ia6"), "Fly", "Landing", SubResource("AnimationNodeStateMachineTransition_0dpix"), "Start", "Run", SubResource("AnimationNodeStateMachineTransition_lrhn5"), "Run", "Jump_Into_Fly", SubResource("AnimationNodeStateMachineTransition_my7n2"), "Landing", "Run", SubResource("AnimationNodeStateMachineTransition_dp8ca")]
+graph_offset = Vector2(-408, -9)
+
+[sub_resource type="Curve3D" id="Curve3D_rkhd4"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_rkhd4")
+turn_speed = 0.3
+walk_run_lerp = 0.1
+
+[node name="characterv2" parent="." instance=ExtResource("1_agfs1")]
+
+[node name="Skeleton3D" parent="characterv2/Rig" index="0"]
+bones/0/position = Vector3(0.00434368, -0.00182611, 1.84667)
+bones/1/rotation = Quaternion(0.648125, -2.09276e-07, -1.87887e-07, 0.761534)
+bones/2/rotation = Quaternion(4.09295e-08, 8.74228e-08, -1.91791e-14, 1)
+bones/3/rotation = Quaternion(-2.15676e-09, 1.46549e-14, 1.72805e-15, 1)
+bones/4/rotation = Quaternion(-0.195707, 0.203173, -0.662891, 0.693538)
+bones/5/rotation = Quaternion(3.29689e-07, -0.648536, 0.761184, -2.83485e-08)
+bones/6/rotation = Quaternion(3.16728e-07, -0.686411, 0.727214, -3.0004e-08)
+bones/7/rotation = Quaternion(-0.195707, -0.203173, 0.662891, 0.693538)
+bones/8/rotation = Quaternion(0.923416, 0.377583, 0.0633073, 0.02696)
+bones/9/rotation = Quaternion(-0.125477, -0.183678, 0.0112488, 0.97488)
+bones/9/scale = Vector3(0.982152, 0.982151, 0.982151)
+bones/10/rotation = Quaternion(-0.114252, -0.136108, 0.00935137, 0.984039)
+bones/10/scale = Vector3(0.958661, 0.958661, 0.958661)
+bones/11/rotation = Quaternion(0.923416, -0.377583, -0.0633077, 0.0269602)
+bones/12/rotation = Quaternion(-0.133566, 0.198408, 0.00474578, 0.970964)
+bones/12/scale = Vector3(0.982152, 0.982152, 0.982152)
+bones/13/rotation = Quaternion(-0.114252, 0.13613, -0.00933584, 0.984037)
+bones/13/scale = Vector3(0.958661, 0.958661, 0.958661)
+bones/14/rotation = Quaternion(0.00167455, -0.621567, 0.783359, -0.000432374)
+bones/15/rotation = Quaternion(-0.343652, 2.22588e-07, 5.47368e-07, 0.939097)
+bones/16/rotation = Quaternion(-0.510433, -0.000245683, 0.00172702, 0.859916)
+bones/17/rotation = Quaternion(0.00205091, -0.451129, 0.892456, 3.25125e-05)
+bones/18/rotation = Quaternion(-0.53684, -1.00393e-07, -7.85029e-07, 0.843684)
+bones/19/rotation = Quaternion(-0.36498, -0.00109313, 0.00180989, 0.931013)
+bones/20/position = Vector3(0.00434368, -0.00182611, 1.84667)
+bones/21/rotation = Quaternion(0.648125, -2.12928e-07, -1.84779e-07, 0.761534)
+bones/22/rotation = Quaternion(4.09295e-08, 8.74228e-08, -1.8066e-14, 1)
+bones/23/rotation = Quaternion(-2.15676e-09, 1.42109e-14, 8.39872e-16, 1)
+bones/24/rotation = Quaternion(-0.195707, 0.203173, -0.662892, 0.693537)
+bones/25/rotation = Quaternion(3.29689e-07, -0.648536, 0.761184, -2.83485e-08)
+bones/26/rotation = Quaternion(3.16728e-07, -0.686411, 0.727214, -3.0004e-08)
+bones/27/rotation = Quaternion(-0.195707, -0.203173, 0.662891, 0.693538)
+bones/28/rotation = Quaternion(0.923416, 0.377583, 0.0633073, 0.02696)
+bones/29/rotation = Quaternion(-0.125477, -0.183678, 0.0112488, 0.97488)
+bones/29/scale = Vector3(0.982152, 0.982151, 0.982151)
+bones/30/rotation = Quaternion(-0.114252, -0.136108, 0.00935137, 0.984039)
+bones/30/scale = Vector3(0.958661, 0.958661, 0.958661)
+bones/31/rotation = Quaternion(0.923416, -0.377583, -0.0633077, 0.0269602)
+bones/32/rotation = Quaternion(-0.133566, 0.198408, 0.00474578, 0.970964)
+bones/32/scale = Vector3(0.982152, 0.982152, 0.982152)
+bones/33/rotation = Quaternion(-0.114252, 0.13613, -0.00933584, 0.984037)
+bones/33/scale = Vector3(0.958661, 0.958661, 0.958661)
+bones/34/rotation = Quaternion(0.00167455, -0.621567, 0.783359, -0.000432376)
+bones/35/rotation = Quaternion(-0.343652, 2.23812e-07, 5.43465e-07, 0.939097)
+bones/36/rotation = Quaternion(0.00205091, -0.451129, 0.892456, 3.25125e-05)
+bones/37/rotation = Quaternion(-0.53684, -1.00393e-07, -7.85029e-07, 0.843684)
+bones/38/position = Vector3(0.417957, 1.26026, 0.0389768)
+bones/38/rotation = Quaternion(6.71483e-07, 0.013562, 0.999908, -4.99695e-08)
+bones/39/position = Vector3(5.93157e-08, -1.19e-07, -2.75869e-07)
+bones/40/position = Vector3(-0.417957, 0.955364, 0.250561)
+bones/40/rotation = Quaternion(-6.62701e-07, 0.161755, 0.986831, 3.25876e-07)
+bones/41/position = Vector3(6.63719e-07, -6.8174e-05, -5.41038e-05)
+bones/41/rotation = Quaternion(1, 1.6927e-14, 1.3868e-06, 6.22893e-10)
+bones/42/position = Vector3(0.417957, 1.78881, 0.858356)
+bones/43/position = Vector3(-0.417957, 1.78881, 0.858356)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.45, 0)
+shape = SubResource("CapsuleShape3D_agfs1")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../characterv2")
+tree_root = SubResource("AnimationNodeStateMachine_lrhn5")
+anim_player = NodePath("../characterv2/AnimationPlayer")
+parameters/conditions/jump = 0.945235
+parameters/conditions/landing = 0.195769
+parameters/Run/blend_position = 0.81258
+
+[node name="Jump Path" type="Path3D" parent="."]
+curve = SubResource("Curve3D_rkhd4")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Jump Path"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0, 0)
+
+[node name="Jump Timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="Jump Buffer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Coyote Time" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="Jump Timer" to="." method="_on_jump_timer_timeout"]
+[connection signal="timeout" from="Coyote Time" to="." method="_on_coyote_time_timeout"]
+
+[editable path="characterv2"]

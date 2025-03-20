@@ -6,6 +6,7 @@ extends CharacterBody3D
 @export var ground_speed = 14
 # How fast the player moves while gliding in meters per second.
 @export var glide_speed = 14
+@export var glide_speed_acceleration = 0.2
 # The downward acceleration when in the air, in meters per second squared.
 @export var fall_acceleration = 75
 # The gliding fall speed of the character
@@ -22,8 +23,13 @@ extends CharacterBody3D
 # The lerp for walking/running
 @export var walk_run_lerp = 0.5
 
+@export_group("Other")
+@export var camera : Camera3D
+
 @onready var anim_tree := $AnimationTree as AnimationTree
 @onready var state_machine := anim_tree.get("parameters/playback") as AnimationNode
+
+@onready var camera_offset = camera.position - position 
 
 enum State{
 	GROUNDED,
@@ -80,7 +86,7 @@ func _physics_process(delta):
 		State.GROUNDED, State.JUMPING:
 			speed = ground_speed
 		State.GLIDING:
-			speed = glide_speed
+			speed = lerp(velocity.length(), float(glide_speed), glide_speed_acceleration)
 		State.FALLING:
 			speed = ground_speed * 0.5 # hardcoded for now
 	
@@ -91,6 +97,8 @@ func _physics_process(delta):
 	# so with the speed, just go forwards
 	
 	target_velocity = Vector3(0, 0, -speed).rotated(Vector3.UP, $characterv2.rotation.y)
+	if current_state == State.GROUNDED:
+		target_velocity = direction.normalized() * speed # if grounded, change direction immediately instead
 		
 	# set blend space
 	$AnimationTree.set("parameters/Run/blend_position", lerp(
@@ -177,6 +185,9 @@ func _on_coyote_time_timeout() -> void:
 		$AnimationTree.set("parameters/conditions/jump", true)
 		current_state = State.GLIDING
 
+func _process(delta: float) -> void:
+	# manage camera
+	camera.position = position + camera_offset
 
 func _on_jump_timer_timeout() -> void:
 	# we're gliding!

@@ -44,12 +44,20 @@ var current_state : State = State.FALLING
 # jump
 
 var target_velocity = Vector3.ZERO
+var can_move = true
+
+func _ready():
+	SimpleGrass.set_interactive(true)
+	
+	DialogueManager.dialogue_started.connect(_on_dialogue_start)
+	DialogueManager.dialogue_ended.connect(_on_dialogue_end)
 
 func _physics_process(delta):
 #region Init
 	# reset animation conditions
 	$AnimationTree.set("parameters/conditions/jump", false)
 	$AnimationTree.set("parameters/conditions/landing", false)
+	
 #endregion
 
 	# We create a local variable to store the input direction.
@@ -89,6 +97,9 @@ func _physics_process(delta):
 			speed = lerp(velocity.length(), float(glide_speed), glide_speed_acceleration)
 		State.FALLING:
 			speed = ground_speed * 0.5 # hardcoded for now
+	
+	if not can_move:
+		direction = Vector3.ZERO
 	
 	if direction == Vector3.ZERO:
 		speed = 0
@@ -173,11 +184,16 @@ func _physics_process(delta):
 		State.FALLING:
 			target_velocity.y = velocity.y - (fall_acceleration * delta)
 #endregion
-	print(current_state)
+	# print(can_move)
 	# Moving the Character
 	velocity = target_velocity
+	
+	if not can_move:
+		velocity = Vector3.ZERO
+	
 	move_and_slide()
 		
+	SimpleGrass.set_player_position(global_position)
 
 func _on_coyote_time_timeout() -> void:
 	# we fell off a platform!
@@ -192,3 +208,9 @@ func _process(delta: float) -> void:
 func _on_jump_timer_timeout() -> void:
 	# we're gliding!
 	current_state = State.GLIDING
+
+func _on_dialogue_start(resource: DialogueResource):
+	can_move = false
+	
+func _on_dialogue_end(resource: DialogueResource):
+	can_move = true

@@ -11,7 +11,7 @@ albedo_color = Color(0.529412, 0.470588, 1, 0.564706)
 [sub_resource type="BoxMesh" id="BoxMesh_o7blk"]
 material = SubResource("StandardMaterial3D_o7blk")
 
-[node name="Area3D" type="Area3D"]
+[node name="Dialogue Trigger" type="Area3D"]
 script = ExtResource("1_o7blk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

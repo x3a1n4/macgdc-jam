@@ -19,6 +19,7 @@ config/icon="res://assets/icon.svg"
 
 SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+Globals="*res://scripts/globals.gd"
 
 [dialogue_manager]
 

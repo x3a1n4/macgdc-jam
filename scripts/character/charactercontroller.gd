@@ -25,6 +25,7 @@ extends CharacterBody3D
 
 @export_group("Other")
 @export var camera : Camera3D
+@export var lockedCamera : bool = false
 
 @onready var anim_tree := $AnimationTree as AnimationTree
 @onready var state_machine := anim_tree.get("parameters/playback") as AnimationNode
@@ -47,6 +48,8 @@ var target_velocity = Vector3.ZERO
 var can_move = true
 
 func _ready():
+	position = position if Globals.Player_Position == Vector3.ZERO else Globals.Player_Position
+	
 	SimpleGrass.set_interactive(true)
 	
 	DialogueManager.dialogue_started.connect(_on_dialogue_start)
@@ -203,7 +206,9 @@ func _on_coyote_time_timeout() -> void:
 
 func _process(delta: float) -> void:
 	# manage camera
-	camera.position = position + camera_offset
+	
+	if not lockedCamera:
+		camera.position = position + camera_offset
 
 func _on_jump_timer_timeout() -> void:
 	# we're gliding!

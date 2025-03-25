@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf5o81v7t7ggd"]
+
+[ext_resource type="Script" uid="uid://bf7nb42k8red" path="res://scripts/warp_trigger.gd" id="1_iak0k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1vvpf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1vvpf"]
+transparency = 1
+albedo_color = Color(0.721186, 0.527138, 0, 0.564706)
+
+[sub_resource type="BoxMesh" id="BoxMesh_iak0k"]
+material = SubResource("StandardMaterial3D_1vvpf")
+
+[node name="Warp Trigger" type="Area3D"]
+script = ExtResource("1_iak0k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1vvpf")
+
+[node name="Visualizer" type="MeshInstance3D" parent="."]
+layers = 131072
+mesh = SubResource("BoxMesh_iak0k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

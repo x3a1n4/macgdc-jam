@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bw1aaegqdvu7x"
+path.s3tc="res://.godot/imported/interior_GroundTexture.png-b031c5d748b66c2b3b11de49cbadb7d4.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "ac750c74af714fba5fc4b3e59d05d8b2"
+}
+
+[deps]
+
+source_file="res://scenes/interior/interior_GroundTexture.png"
+dest_files=["res://.godot/imported/interior_GroundTexture.png-b031c5d748b66c2b3b11de49cbadb7d4.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

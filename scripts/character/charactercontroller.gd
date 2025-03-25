@@ -81,6 +81,7 @@ func _physics_process(delta):
 		
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
+		
 		# Setting the basis property will affect the rotation of the node.
 
 	# turn

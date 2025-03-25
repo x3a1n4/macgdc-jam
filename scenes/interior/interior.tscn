@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://mdvs6npwxkk"]
+[gd_scene load_steps=21 format=3 uid="uid://mdvs6npwxkk"]
 
 [ext_resource type="PackedScene" uid="uid://ug4yjx3safs7" path="res://scenes/interior/interior.glb" id="1_vw4tj"]
 [ext_resource type="PackedScene" uid="uid://b3g1ff7yaxi3i" path="res://scenes/character.tscn" id="2_vuw8d"]
 [ext_resource type="PackedScene" uid="uid://cf5o81v7t7ggd" path="res://scenes/warp_trigger.tscn" id="3_3t5nh"]
+[ext_resource type="PackedScene" uid="uid://koq1yres26pm" path="res://scenes/ui.tscn" id="5_4x6y4"]
 [ext_resource type="Texture2D" uid="uid://dtll26w8bpcmq" path="res://assets/skies/autumn_field_puresky_4k.exr" id="5_qmy1r"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_spd0f"]
@@ -139,5 +140,7 @@ warp_pos = Vector3(398.712, 35.105, -267.911)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_omm1g")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("5_4x6y4")]
 
 [editable path="interior"]

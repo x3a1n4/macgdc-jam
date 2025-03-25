@@ -13,4 +13,11 @@ Nathan: Here are some choices.
 - Start again => start
 - End the conversation => END
 Nathan: For more information see the online documentation.
+
+~ tree
+Nathan: Mmh. Yeah.
+Nathan: See, your problem is
+Nathan: that's a tree.
+Nathan: Not ruins. => END
+
 => END

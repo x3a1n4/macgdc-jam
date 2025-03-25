@@ -3,6 +3,8 @@ extends Node
 var Player_Position : Vector3 = Vector3.ZERO
 var Just_Teleported : int = 0
 
+var has_shown_tutorial : bool = false
+
 var current_scene = null
 
 func _ready():

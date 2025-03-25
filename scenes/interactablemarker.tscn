@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccioqkqr2gifs"]
+
+[ext_resource type="Script" uid="uid://oyr0rxuvdx5s" path="res://scripts/interactablemarker.gd" id="1_1t3s6"]
+[ext_resource type="Texture2D" uid="uid://bojnubka2tqo3" path="res://assets/ui/visdev/E1.PNG" id="2_6qt4v"]
+[ext_resource type="Texture2D" uid="uid://b7ams6hfiwbu5" path="res://assets/ui/visdev/E2.PNG" id="3_a0c8u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1t3s6"]
+transparency = 1
+albedo_color = Color(1, 1, 0.282353, 0.505882)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ro5gj"]
+material = SubResource("StandardMaterial3D_1t3s6")
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_0bm4j"]
+frames = 2
+frame_0/texture = ExtResource("2_6qt4v")
+frame_1/texture = ExtResource("3_a0c8u")
+frame_1/duration = 1.0
+
+[node name="InteractableMarker" type="MeshInstance3D"]
+layers = 131072
+mesh = SubResource("SphereMesh_ro5gj")
+script = ExtResource("1_1t3s6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 128.0
+offset_bottom = 128.0
+texture = SubResource("AnimatedTexture_0bm4j")
+expand_mode = 1

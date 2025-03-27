@@ -1,15 +1,18 @@
+~ basket
+Avery: Must have held lunch
+do! Globals.hide_image() 
+=> END
+
 ~ logbook
-do Globals.show_image("res://assets/ui/guardbook.png") 
+do! Globals.show_image("res://assets/ui/guardbook.png") 
 => END
 
 ~ page
-do Globals.show_image("res://assets/ui/contract.png")
-=> END
-
-~ basket
-Must have held lunch 
+do! Globals.show_image("res://assets/ui/contract.png")
 => END
 
 ~ showr
-do Globals.show_r() 
+do! Globals.show_r() 
+=> END
+
 => END

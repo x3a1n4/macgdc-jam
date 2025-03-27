@@ -1,9 +1,8 @@
 ~ start
 Nathan: This is one of the stranger ruins we've encountered
-Nathan: The literature might be wrong
-Nathan: But it looks like everyone just up and left.
-Avery: So that's why I'm here?
-Nathan: Yup. See if you can figure out when things happened => END
+Avery: That's why I'm here?
+Nathan: Yup. See if you can figure out when things happened .
+=> END
 
 ~ explain1030
 Avery: What [i]does[/i] the literature say?
@@ -12,24 +11,32 @@ Nathan: We recieved an extratemporal signal
 Nathan: It triangulated to the city centre
 Nathan: It's hard to pin down the year, but we know the time
 Nathan: [b][wave amp=25 freq=5]10:30 pm exactly.[/wave][/b]
+Nathan: Everything appears to have stopped at that exact moment
 Avery: Strange.
-Nathan: Indeed. => END
-
-~ showspace
-[do Globals.show_space()] => END
+Nathan: Indeed.
+=> END
 
 ~ gate
 Somehow, the lock still holds.[wait=0.5]
-The inscription reads \:
-"[b][wave amp=25 freq=5]Ambrosian Valley[/wave][/b] \n Do not enter without approval" => END
+The inscription reads\:
+"[b][wave amp=25 freq=5]Ambrosian Valley[/wave][/b] \n Do not enter without approval." 
+do! Globals.hide_image() 
+=> END
 
 ~ thedoorisopen
-Looks like this door is open
+Avery: Looks like this door is open.
+do! Globals.hide_image() 
+=> END
 
 ~ tree
 Nathan: Mmh. Yeah.
 Nathan: See, your problem is
 Nathan: that's a tree.
-Nathan: Not ruins. => END
+Nathan: Not ruins. 
+=> END
+
+~ showspace
+do! Globals.show_space() 
+=> END
 
 => END

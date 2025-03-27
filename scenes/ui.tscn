@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://koq1yres26pm"]
+[gd_scene load_steps=25 format=3 uid="uid://koq1yres26pm"]
 
 [ext_resource type="Script" uid="uid://jmb2iurv240c" path="res://scripts/ui.gd" id="1_gdt2y"]
 [ext_resource type="Texture2D" uid="uid://duh4nfytpn40t" path="res://assets/ui/visdev/Wasd1.PNG" id="1_yev5y"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://l7u5lc1mrlga" path="res://assets/ui/visdev/Paint Layer 3.PNG" id="11_jkdwc"]
 [ext_resource type="Script" uid="uid://dlfjqc218yfyb" path="res://scenes/image_display.gd" id="13_qsv74"]
 [ext_resource type="Texture2D" uid="uid://cc0eebm2l0wb5" path="res://assets/ui/guardbook.png" id="13_vsj0x"]
+[ext_resource type="AudioStream" uid="uid://cttcgl4doirmj" path="res://assets/audio/Polar Lights.wav" id="18_8k7j3"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_6rmj2"]
 frames = 3
@@ -239,5 +240,13 @@ grow_vertical = 2
 texture = ExtResource("13_vsj0x")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_8k7j3")
+volume_db = -15.0
+autoplay = true
+
+[node name="UI_Sound" type="AudioStreamPlayer" parent="."]
+volume_db = -15.0
 
 [connection signal="pressed" from="Schedule Container/Button" to="." method="_on_button_pressed"]

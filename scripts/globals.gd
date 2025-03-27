@@ -27,14 +27,18 @@ func show_r():
 
 func show_image(image : String):
 	var image_tex : ImageDisplay = current_scene.find_child("UI", true, false).find_child("ImageDisplay", true, false)
-	print(image_tex)
+	if not image_tex: return
+	#print(image_tex)
 	image_tex.get_child(0).texture = load(image)
 	was_just_pressed = true # spaghetti :)
 	image_tex.show_image()
 
 func hide_image():
-	var image_tex : ImageDisplay = current_scene.find_child("UI", true, false).find_child("ImageDisplay", true, false)
-	image_tex.hide_image()
+	var UInode : CanvasLayer = current_scene.find_child("UI", true, false)
+	if not UInode: return
+	var image_tex : ImageDisplay = UInode.find_child("ImageDisplay", true, false)
+	if image_tex:
+		image_tex.hide_image()
 
 var was_just_pressed = false
 func _process(delta):

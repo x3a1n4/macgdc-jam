@@ -22,6 +22,16 @@ var is_hovering : bool = false
 
 const default_border_size : int = 3
 
+var cursorSound : AudioStream = AudioStreamMP3.load_from_file(
+	"res://assets/audio/ui/JDSherbert - Ultimate UI SFX Pack - Cursor - 1.mp3"
+)
+var menuOpenSound : AudioStream = AudioStreamMP3.load_from_file(
+	"res://assets/audio/ui/JDSherbert - Ultimate UI SFX Pack - Cursor - 4.mp3"
+)
+var menuSelectedSound : AudioStream = AudioStreamMP3.load_from_file(
+	"res://assets/audio/ui/JDSherbert - Ultimate UI SFX Pack - Select - 1.mp3"
+)
+
 func _ready():
 	var popup : PopupMenu = $VBoxContainer/TypeLabel.get_popup()
 	popup.id_pressed.connect(_on_type_selected)
@@ -133,13 +143,22 @@ func duplicate_element(flags: int = 15) -> CalendarElement:
 func _on_type_selected(id):
 	var index = id + 1
 	type = CalendarType.names()[index]
+	
+	$UI_Sound.stream = menuSelectedSound
+	$UI_Sound.play()
 
 func _on_mouse_entered():
 	get_theme_stylebox("panel").set("bg_color", CalendarType.from_name(type).colour * 1.1)
 	is_hovering = true
-	print("mouse entered")
+	
+	$UI_Sound.stream = cursorSound
+	$UI_Sound.play()
 
 func _on_mouse_exited():
 	get_theme_stylebox("panel").set("bg_color", CalendarType.from_name(type).colour)
 	is_hovering = false
-	print("mouse exited")
+
+# play sound
+func _on_type_label_about_to_popup():
+	$UI_Sound.stream = menuOpenSound
+	$UI_Sound.play()

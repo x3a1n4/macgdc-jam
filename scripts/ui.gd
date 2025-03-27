@@ -7,7 +7,16 @@ class_name Game_UI
 var is_schedule_open : bool = false
 @onready var target_schedule_position : Vector2 = schedule_off_pos
 
+@onready var win_dialogue : DialogueResource = load("res://dialogue/win.dialogue")
+
 var hour_heights : Array[float]
+
+var openSound : AudioStream = AudioStreamMP3.load_from_file(
+	"res://assets/audio/ui/JDSherbert - Ultimate UI SFX Pack - Popup Open - 1.mp3"
+)
+var closeSound : AudioStream = AudioStreamMP3.load_from_file(
+	"res://assets/audio/ui/JDSherbert - Ultimate UI SFX Pack - Popup Close - 1.mp3"
+)
 
 func _ready():
 	# show tutorial
@@ -16,7 +25,14 @@ func _ready():
 		Globals.has_shown_tutorial = true
 	
 	$"Schedule Container".position = schedule_off_pos
-	
+
+var has_won : bool = false
+const win_con : Array[Array] = [
+	[0.0, 7.0, "Sleeping"],
+	[7.0, 13.0, "Working"],
+	[13.0, 14.0, "Eating"],
+	[14.0, 22.5, "Working"],
+]
 
 func _enter_tree():
 	# instantiate tickmarkers
@@ -50,11 +66,31 @@ func _process(delta):
 			# turn off
 			is_schedule_open = false
 			target_schedule_position = schedule_off_pos
+			
+			$UI_Sound.stream = closeSound
+			$UI_Sound.play()
 		else:
 			# turn on
 			is_schedule_open = true
 			target_schedule_position = schedule_view_pos
+			
+			$UI_Sound.stream = openSound
+			$UI_Sound.play()
 	$"Schedule Container".position = lerp($"Schedule Container".position, target_schedule_position, 0.1)
+	
+	# check calendar
+	var calendar : Array[Array] = []
+	for child in $"Schedule Container/BG".get_children():
+		if child is CalendarElement:
+			calendar.append([child.StartTime, child.EndTime, child.type])
+	var winning : bool = true
+	for correct_element in win_con:
+		if correct_element not in calendar:
+			winning = false
+			break
+	if winning and not has_won:
+		var dialogue_line = DialogueManager.show_example_dialogue_balloon(win_dialogue, "start")
+		has_won = true
 
 func snap_to_time(height : float) -> float:
 	var minimal_height = -1

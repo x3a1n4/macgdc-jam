@@ -69,8 +69,12 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_default_cursor_shape = 9
 
+[node name="UI_Sound" type="AudioStreamPlayer" parent="."]
+volume_db = -15.0
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="about_to_popup" from="VBoxContainer/TypeLabel" to="." method="_on_type_label_about_to_popup"]
 [connection signal="mouse_entered" from="UpperDragBox" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UpperDragBox" to="." method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="LowerDragBox" to="." method="_on_mouse_entered"]

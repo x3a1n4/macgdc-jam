@@ -1,0 +1,10 @@
+~ start
+Avery: I think I got it figured out.
+Nathan: Great!
+Nathan: This all looks good to me.
+Nathan: Continue onwards. [wait=0.5]. See what else you can find.
+Avery: Okay!
+do! Globals.goto_scene("res://scenes/endscreen.tscn")
+=> END
+
+=> END

@@ -29,13 +29,13 @@ func _process(delta):
 	self_modulate = Color(1.0, 1.0, 1.0, opacity)
 
 func _start_fade_on():
-	if fade_state == Fade.OFF: return
+	if fade_state == Fade.OFF or fade_state == Fade.FADE_OFF: return
 	
 	fade_state = Fade.FADE_ON
 	$FadeOnTime.start()
 
 func _start_fade_off():
-	if fade_state == Fade.OFF: return
+	if fade_state == Fade.OFF or fade_state == Fade.FADE_OFF: return
 	
 	fade_state = Fade.FADE_OFF
 	$FadeOffTime.start()

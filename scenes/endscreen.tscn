@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccwuc217jwlni"]
+
+[ext_resource type="Texture2D" uid="uid://nqq3rcfs4y14" path="res://assets/ui/winscreen.png" id="1_cuen1"]
+[ext_resource type="FontFile" uid="uid://bqyv5bstovdcn" path="res://assets/ui/fonts/simply rounded/Simply Rounded Bold.ttf" id="2_5j82o"]
+
+[sub_resource type="Theme" id="Theme_7s65u"]
+default_font = ExtResource("2_5j82o")
+default_font_size = 30
+
+[node name="Endscreen" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_cuen1")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 712.0
+offset_top = 14.0
+offset_right = 1139.0
+offset_bottom = 290.0
+
+[node name="Credits" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -441.0
+offset_top = -128.0
+offset_right = -11.0
+offset_bottom = 81.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = SubResource("Theme_7s65u")
+bbcode_enabled = true
+text = "[p align=right]Thank you for playing!
+
+Game by eggshells
+
+Built in three weeks for the 2025 MacGDC Jam"

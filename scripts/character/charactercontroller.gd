@@ -55,6 +55,12 @@ func _ready():
 	DialogueManager.dialogue_started.connect(_on_dialogue_start)
 	DialogueManager.dialogue_ended.connect(_on_dialogue_end)
 
+func _enter_tree():
+	if get_parent().name == "Interior":
+		$WalkPlayer.stream = AudioStreamMP3.load_from_file("res://assets/audio/footsteps-on-wood-floor-14735.mp3")
+	elif get_parent().name == "Game":
+		$WalkPlayer.stream = AudioStreamMP3.load_from_file("res://assets/audio/walk-on-grass-2-291985.mp3")
+
 func _physics_process(delta):
 #region Init
 	# reset animation conditions
@@ -114,7 +120,7 @@ func _physics_process(delta):
 	target_velocity = Vector3(0, 0, -speed).rotated(Vector3.UP, $characterv2.rotation.y)
 	if current_state == State.GROUNDED:
 		target_velocity = direction.normalized() * speed # if grounded, change direction immediately instead
-		
+	
 	# set blend space
 	$AnimationTree.set("parameters/Run/blend_position", lerp(
 		$AnimationTree.get("parameters/Run/blend_position"),
@@ -187,6 +193,21 @@ func _physics_process(delta):
 			
 		State.FALLING:
 			target_velocity.y = velocity.y - (fall_acceleration * delta)
+#endregion
+
+#region Audio
+	if current_state == State.GROUNDED and direction != Vector3.ZERO:
+		if not $WalkPlayer.playing:
+			$WalkPlayer.playing = true
+	else:
+		$WalkPlayer.playing = false
+	
+	if current_state == State.GLIDING:
+		if not $FlyPlayer.playing:
+			$FlyPlayer.playing = true
+	else:
+		$FlyPlayer.playing = false
+		
 #endregion
 	# print(can_move)
 	# Moving the Character

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvbqiqcv4uycw"]
+
+[ext_resource type="Script" uid="uid://qt23iu5c7drk" path="res://scenes/fadeable.gd" id="1_muv5f"]
+
+[node name="Fadeable" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_muv5f")
+
+[node name="FadeOnTime" type="Timer" parent="."]
+one_shot = true
+
+[node name="FadeOffTime" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="FadeOnTime" to="." method="_on_fade_on_time_timeout"]
+[connection signal="timeout" from="FadeOffTime" to="." method="_on_fade_off_time_timeout"]

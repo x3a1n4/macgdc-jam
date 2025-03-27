@@ -1,10 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://mdvs6npwxkk"]
+[gd_scene load_steps=24 format=3 uid="uid://mdvs6npwxkk"]
 
 [ext_resource type="PackedScene" uid="uid://ug4yjx3safs7" path="res://scenes/interior/interior.glb" id="1_vw4tj"]
 [ext_resource type="PackedScene" uid="uid://b3g1ff7yaxi3i" path="res://scenes/character.tscn" id="2_vuw8d"]
 [ext_resource type="PackedScene" uid="uid://cf5o81v7t7ggd" path="res://scenes/warp_trigger.tscn" id="3_3t5nh"]
 [ext_resource type="PackedScene" uid="uid://koq1yres26pm" path="res://scenes/ui.tscn" id="5_4x6y4"]
 [ext_resource type="Texture2D" uid="uid://dtll26w8bpcmq" path="res://assets/skies/autumn_field_puresky_4k.exr" id="5_qmy1r"]
+[ext_resource type="PackedScene" uid="uid://ccioqkqr2gifs" path="res://scenes/interactablemarker.tscn" id="6_omm1g"]
+[ext_resource type="Resource" uid="uid://feom062eqd5m" path="res://dialogue/interior.dialogue" id="7_jrubd"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_spd0f"]
 exposure_multiplier = 2.163
@@ -58,6 +60,10 @@ ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.79
 glow_enabled = true
 adjustment_enabled = true
+
+[sub_resource type="Curve" id="Curve_7sslo"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Interior" type="Node3D"]
 
@@ -141,6 +147,14 @@ warp_pos = Vector3(398.712, 35.105, -267.911)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_omm1g")
 
-[node name="CanvasLayer" parent="." instance=ExtResource("5_4x6y4")]
+[node name="UI" parent="." instance=ExtResource("5_4x6y4")]
+
+[node name="Guardbook_in" parent="." instance=ExtResource("6_omm1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2002, 2.65929, 1.33196)
+fade = SubResource("Curve_7sslo")
+range = 25.0
+close_range = 5.0
+dialogue_resource = ExtResource("7_jrubd")
+starting_point = "logbook"
 
 [editable path="interior"]

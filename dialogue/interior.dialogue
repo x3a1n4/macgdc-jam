@@ -1,0 +1,6 @@
+~ logbook
+It's an old guardbook
+do Globals.show_image("res://assets/ui/guardbook.png")
+=> END
+
+=> END

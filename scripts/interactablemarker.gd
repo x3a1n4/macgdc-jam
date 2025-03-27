@@ -18,7 +18,6 @@ var camera : Camera3D
 func _ready():
 	# get player
 	for child in get_parent().get_children():
-		print(child)
 		if child is CharacterBody3D:
 			character = child
 		if child is Camera3D:

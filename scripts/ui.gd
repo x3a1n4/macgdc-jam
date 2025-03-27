@@ -1,35 +1,76 @@
 extends CanvasLayer
 
-enum WASDFade {
-	WAIT,
-	FADE_ON,
-	ON,
-	FADE_OFF
-}
+class_name Game_UI
 
-var wasd_state : WASDFade = WASDFade.WAIT
-	
+@onready var schedule_view_pos = $"Schedule Container".position
+@onready var schedule_off_pos = schedule_view_pos + Vector2.RIGHT * $"Schedule Container".size
+var is_schedule_open : bool = false
+@onready var target_schedule_position : Vector2 = schedule_off_pos
+
+var hour_heights : Array[float]
+
 func _ready():
 	# show tutorial
 	if not Globals.has_shown_tutorial:
-		$Wasd/WaitToFadeTime.start()
+		$WASD_Fadeable._start_fade_on()
 		Globals.has_shown_tutorial = true
+	
+	$"Schedule Container".position = schedule_off_pos
+	
+
+func _enter_tree():
+	# instantiate tickmarkers
+	for i in range(1, 48):
+		var new_node : HSeparator = $"Schedule Container/BG/TickMarker".duplicate()
+		new_node.position = $"Schedule Container/BG/TickMarker".position + Vector2.DOWN * $"Schedule Container/BG".size.y * i/48
+		$"Schedule Container/BG".add_child(new_node)
+		$"Schedule Container/BG".move_child(new_node, 0)
+		
+		if i % 2 == 1:
+			new_node.self_modulate.a = 0.3
+		
+		hour_heights.append(new_node.global_position.y)
 
 func _process(delta):
 	var opacity = 0.0
-	match wasd_state:
-		WASDFade.WAIT:
-			opacity = 0.0
-		WASDFade.FADE_ON:
-			opacity = $Wasd/FadeOnTime.wait_time - $Wasd/FadeOnTime.time_left
-		WASDFade.ON:
-			opacity = 1.0
-		WASDFade.FADE_OFF:
-			opacity = $Wasd/FadeOffTime.time_left
 	
-	# hell
 	if Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_back") or Input.is_action_pressed("move_forward"):
-		$Wasd/FadeOnTime.start()
-		wasd_state = WASDFade.FADE_OFF
+		$WASD_Fadeable._start_fade_off()
+		
+	if Input.is_action_pressed("jump"):
+		$Space_Fadeable._start_fade_off()
 	
-	$Wasd.self_modulate = Color(1.0, 1.0, 1.0, opacity)
+	if Input.is_action_pressed("open_schedule"):
+		$R_Fadeable._start_fade_off()
+	
+	if Input.is_action_pressed("open_schedule"):
+		Input.action_release("open_schedule")
+		
+		if is_schedule_open:
+			# turn off
+			is_schedule_open = false
+			target_schedule_position = schedule_off_pos
+		else:
+			# turn on
+			is_schedule_open = true
+			target_schedule_position = schedule_view_pos
+	$"Schedule Container".position = lerp($"Schedule Container".position, target_schedule_position, 0.1)
+
+func snap_to_time(height : float) -> float:
+	var minimal_height = -1
+	for h in hour_heights:
+		if abs(height-h) < abs(height-minimal_height):
+			minimal_height = h
+	
+	return minimal_height
+	
+func snap_to_hour(height : float) -> float:
+	return hour_heights.find(snap_to_time(height)) * 0.5
+
+func _on_button_pressed():
+	# add event
+	var new_event : CalendarElement = $"Schedule Container/BG/DummyEvent".duplicate_element()
+	$"Schedule Container/BG".add_child(new_event)
+	
+	new_event.position += Vector2.DOWN * 300
+	new_event.visible = true

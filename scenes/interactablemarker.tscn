@@ -23,6 +23,8 @@ mesh = SubResource("SphereMesh_ro5gj")
 script = ExtResource("1_1t3s6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(-59.43, -77.94)
+transform = Transform2D(1, 0, 0, 1, -59.43, -77.94)
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 offset_right = 128.0

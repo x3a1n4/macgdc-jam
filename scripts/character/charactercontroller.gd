@@ -217,6 +217,7 @@ func _on_jump_timer_timeout() -> void:
 
 func _on_dialogue_start(resource: DialogueResource):
 	can_move = false
+	current_state = State.FALLING
 	
 func _on_dialogue_end(resource: DialogueResource):
 	can_move = true

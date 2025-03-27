@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://vmpsr3iyiq71"]
+
+[ext_resource type="Script" uid="uid://b5cdja4olw614" path="res://scenes/calendar_element.gd" id="1_xnmmw"]
+[ext_resource type="Theme" uid="uid://cuhbgvihnv7p4" path="res://assets/ui/text_theme.tres" id="2_6fxwb"]
+[ext_resource type="Texture2D" uid="uid://ciay86ooqg62i" path="res://assets/ui/icons/MenuSide.PNG" id="2_o8yrw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o8yrw"]
+bg_color = Color(0.838107, 0.76833, 0.558023, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="CalendarElement" type="Panel"]
+offset_right = 213.0
+offset_bottom = 72.0
+mouse_default_cursor_shape = 13
+theme_override_styles/panel = SubResource("StyleBoxFlat_o8yrw")
+script = ExtResource("1_xnmmw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TypeLabel" type="MenuButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_6fxwb")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Eating"
+icon = ExtResource("2_o8yrw")
+
+[node name="TimeLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_6fxwb")
+bbcode_enabled = true
+text = "[p align=center][b]9:99[/b]  -  [b]9:99[/b]"
+fit_content = true
+
+[node name="UpperDragBox" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+mouse_default_cursor_shape = 9
+
+[node name="LowerDragBox" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_default_cursor_shape = 9
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

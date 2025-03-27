@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cuhbgvihnv7p4"]
+
+[ext_resource type="FontFile" uid="uid://doa5o3pvxirjj" path="res://assets/ui/fonts/simply rounded/Simply Rounded.ttf" id="1_07f1n"]
+
+[resource]
+default_font = ExtResource("1_07f1n")
+default_font_size = 20

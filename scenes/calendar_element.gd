@@ -22,13 +22,13 @@ var is_hovering : bool = false
 
 const default_border_size : int = 3
 
-var cursorSound : AudioStream = AudioStreamMP3.load_from_file(
+var cursorSound : AudioStream = load(
 	"res://assets/audio/ui/JDSherbert - Ultimate UI SFX Pack - Cursor - 1.mp3"
 )
-var menuOpenSound : AudioStream = AudioStreamMP3.load_from_file(
+var menuOpenSound : AudioStream = load(
 	"res://assets/audio/ui/JDSherbert - Ultimate UI SFX Pack - Cursor - 4.mp3"
 )
-var menuSelectedSound : AudioStream = AudioStreamMP3.load_from_file(
+var menuSelectedSound : AudioStream = load(
 	"res://assets/audio/ui/JDSherbert - Ultimate UI SFX Pack - Select - 1.mp3"
 )
 

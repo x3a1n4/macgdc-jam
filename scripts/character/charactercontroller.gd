@@ -57,9 +57,9 @@ func _ready():
 
 func _enter_tree():
 	if get_parent().name == "Interior":
-		$WalkPlayer.stream = AudioStreamMP3.load_from_file("res://assets/audio/footsteps-on-wood-floor-14735.mp3")
+		$WalkPlayer.stream = load("res://assets/audio/footsteps-on-wood-floor-14735.mp3")
 	elif get_parent().name == "Game":
-		$WalkPlayer.stream = AudioStreamMP3.load_from_file("res://assets/audio/walk-on-grass-2-291985.mp3")
+		$WalkPlayer.stream = load("res://assets/audio/walk-on-grass-2-291985.mp3")
 
 func _physics_process(delta):
 #region Init

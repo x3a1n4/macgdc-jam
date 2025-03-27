@@ -1,17 +1,15 @@
 ~ start
-Nathan: This is one of the stranger ruins we've encountered
+Nathan: This is one of the stranger ruins we've encountered.
 Avery: That's why I'm here?
 Nathan: Yup. See if you can figure out when things happened .
 => END
 
 ~ explain1030
-Avery: What [i]does[/i] the literature say?
-Nathan: Not much
-Nathan: We recieved an extratemporal signal
-Nathan: It triangulated to the city centre
-Nathan: It's hard to pin down the year, but we know the time
+Avery: Do youwe know [i]anything[/i] about this place?
+Nathan: Not much.
+Nathan: We recieved an extratemporal signal, and triangulated it to the city centre.\nIt's hard to pin down the year, but we know the time
 Nathan: [b][wave amp=25 freq=5]10:30 pm exactly.[/wave][/b]
-Nathan: Everything appears to have stopped at that exact moment
+Nathan: Everything stopped at that exact moment.
 Avery: Strange.
 Nathan: Indeed.
 => END

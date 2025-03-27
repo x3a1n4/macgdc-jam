@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccwuc217jwlni"]
+[gd_scene load_steps=5 format=3 uid="uid://ccwuc217jwlni"]
 
 [ext_resource type="Texture2D" uid="uid://nqq3rcfs4y14" path="res://assets/ui/winscreen.png" id="1_cuen1"]
 [ext_resource type="FontFile" uid="uid://bqyv5bstovdcn" path="res://assets/ui/fonts/simply rounded/Simply Rounded Bold.ttf" id="2_5j82o"]
+[ext_resource type="AudioStream" uid="uid://bvvqujcxapmx7" path="res://assets/audio/Interior Birdecorator Decorate.ogg" id="3_5j82o"]
 
 [sub_resource type="Theme" id="Theme_7s65u"]
 default_font = ExtResource("2_5j82o")
@@ -43,3 +44,6 @@ text = "[p align=right]Thank you for playing!
 Game by eggshells
 
 Built in three weeks for the 2025 MacGDC Jam"
+
+[node name="Winplayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5j82o")

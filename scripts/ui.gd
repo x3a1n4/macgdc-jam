@@ -35,6 +35,13 @@ const win_con : Array[Array] = [
 ]
 
 func _enter_tree():
+	# set music
+	#print(get_parent().name)
+	if get_parent().name == "Interior":
+		$Music.stream = AudioStreamOggVorbis.load_from_file("res://assets/audio/Sketchbook 2024-12-04.ogg")
+	elif get_parent().name == "Game":
+		$Music.stream = AudioStreamWAV.load_from_file("res://assets/audio/Polar Lights.wav")
+	
 	# instantiate tickmarkers
 	for i in range(1, 48):
 		var new_node : HSeparator = $"Schedule Container/BG/TickMarker".duplicate()

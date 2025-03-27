@@ -1,6 +1,15 @@
 ~ logbook
-It's an old guardbook
-do Globals.show_image("res://assets/ui/guardbook.png")
+do Globals.show_image("res://assets/ui/guardbook.png") 
 => END
 
+~ page
+do Globals.show_image("res://assets/ui/contract.png")
+=> END
+
+~ basket
+Must have held lunch 
+=> END
+
+~ showr
+do Globals.show_r() 
 => END

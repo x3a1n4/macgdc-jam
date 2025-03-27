@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://mdvs6npwxkk"]
+[gd_scene load_steps=25 format=3 uid="uid://mdvs6npwxkk"]
 
 [ext_resource type="PackedScene" uid="uid://ug4yjx3safs7" path="res://scenes/interior/interior.glb" id="1_vw4tj"]
 [ext_resource type="PackedScene" uid="uid://b3g1ff7yaxi3i" path="res://scenes/character.tscn" id="2_vuw8d"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dtll26w8bpcmq" path="res://assets/skies/autumn_field_puresky_4k.exr" id="5_qmy1r"]
 [ext_resource type="PackedScene" uid="uid://ccioqkqr2gifs" path="res://scenes/interactablemarker.tscn" id="6_omm1g"]
 [ext_resource type="Resource" uid="uid://feom062eqd5m" path="res://dialogue/interior.dialogue" id="7_jrubd"]
+[ext_resource type="PackedScene" uid="uid://jj3gafoh7stn" path="res://scenes/dialogue_trigger.tscn" id="8_jrubd"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_spd0f"]
 exposure_multiplier = 2.163
@@ -136,7 +137,7 @@ transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_voe78")
 
 [node name="CollisionShape3D11" type="CollisionShape3D" parent="Collision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.09919, 0.706151, 10.0073)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.09919, -0.353578, 10.0073)
 shape = SubResource("ConvexPolygonShape3D_cwh73")
 
 [node name="Warp Trigger" parent="." instance=ExtResource("3_3t5nh")]
@@ -152,9 +153,31 @@ environment = SubResource("Environment_omm1g")
 [node name="Guardbook_in" parent="." instance=ExtResource("6_omm1g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2002, 2.65929, 1.33196)
 fade = SubResource("Curve_7sslo")
-range = 25.0
+range = 10.0
 close_range = 5.0
 dialogue_resource = ExtResource("7_jrubd")
 starting_point = "logbook"
+
+[node name="Basket_in" parent="." instance=ExtResource("6_omm1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.177043, 4.30388, -0.209506)
+fade = SubResource("Curve_7sslo")
+range = 10.0
+close_range = 7.0
+dialogue_resource = ExtResource("7_jrubd")
+starting_point = "basket"
+
+[node name="Page_in" parent="." instance=ExtResource("6_omm1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25039, 3.58242, 6.01344)
+fade = SubResource("Curve_7sslo")
+range = 10.0
+close_range = 7.0
+dialogue_resource = ExtResource("7_jrubd")
+starting_point = "page"
+
+[node name="Show_r" parent="." instance=ExtResource("8_jrubd")]
+transform = Transform3D(7.1535, 0, 0, 0, 10.7137, 0, 0, 0, 1, -0.0629622, 3.62874, -11.0936)
+dialogue_resource = ExtResource("7_jrubd")
+starting_point = "showr"
+oneshot = true
 
 [editable path="interior"]

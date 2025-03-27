@@ -1,13 +1,30 @@
 ~ start
-Nathan: The [b][wave amp=25 freq=5]Ambrosian Valley[/wave][/b] is one of the stranger ruins we've encountered
+Nathan: This is one of the stranger ruins we've encountered
 Nathan: The literature might be wrong
 Nathan: But it looks like everyone just up and left.
 Avery: So that's why I'm here?
 Nathan: Yup. See if you can figure out when things happened => END
 
+~ explain1030
+Avery: What [i]does[/i] the literature say?
+Nathan: Not much
+Nathan: We recieved an extratemporal signal
+Nathan: It triangulated to the city centre
+Nathan: It's hard to pin down the year, but we know the time
+Nathan: [b][wave amp=25 freq=5]10:30 pm exactly.[/wave][/b]
+Avery: Strange.
+Nathan: Indeed. => END
+
 ~ showspace
-do Globals.show_space() 
-=> END
+[do Globals.show_space()] => END
+
+~ gate
+Somehow, the lock still holds.[wait=0.5]
+The inscription reads \:
+"[b][wave amp=25 freq=5]Ambrosian Valley[/wave][/b] \n Do not enter without approval" => END
+
+~ thedoorisopen
+Looks like this door is open
 
 ~ tree
 Nathan: Mmh. Yeah.

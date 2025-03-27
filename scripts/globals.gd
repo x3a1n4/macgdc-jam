@@ -11,12 +11,19 @@ func _ready():
 
 var has_shown_tutorial : bool = false
 var has_shown_jumping_tutorial : bool = false
+var has_shown_schedule_tutorial : bool = false
 
 func show_space():
 	var space_fadeable = current_scene.find_child("UI", true, false).find_child("Space_Fadeable", true, false) as Fadeable
 	if space_fadeable and not has_shown_jumping_tutorial:
 		has_shown_jumping_tutorial = true
 		space_fadeable._start_fade_on()
+
+func show_r():
+	var r_fadeable = current_scene.find_child("UI", true, false).find_child("R_Fadeable", true, false) as Fadeable
+	if r_fadeable and not has_shown_schedule_tutorial:
+		has_shown_schedule_tutorial = true
+		r_fadeable._start_fade_on()
 
 func show_image(image : String):
 	var image_tex : ImageDisplay = current_scene.find_child("UI", true, false).find_child("ImageDisplay", true, false)

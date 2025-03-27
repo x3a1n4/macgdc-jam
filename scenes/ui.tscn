@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://koq1yres26pm"]
+[gd_scene load_steps=24 format=3 uid="uid://koq1yres26pm"]
 
 [ext_resource type="Script" uid="uid://jmb2iurv240c" path="res://scripts/ui.gd" id="1_gdt2y"]
 [ext_resource type="Texture2D" uid="uid://duh4nfytpn40t" path="res://assets/ui/visdev/Wasd1.PNG" id="1_yev5y"]
@@ -10,8 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://cnrh5prd2ehvp" path="res://assets/ui/visdev/Space3.PNG" id="7_cgfq5"]
 [ext_resource type="Texture2D" uid="uid://cqs8o0l5ah2d" path="res://assets/ui/calendarui/BG.PNG" id="8_7dvkv"]
 [ext_resource type="PackedScene" uid="uid://vmpsr3iyiq71" path="res://scenes/calendar_element.tscn" id="8_ktti3"]
+[ext_resource type="Texture2D" uid="uid://esqqj46wleoc" path="res://assets/ui/visdev/R1.PNG" id="9_f7tlh"]
 [ext_resource type="Texture2D" uid="uid://dypaflanrweyl" path="res://assets/ui/calendarui/BG Gradient.PNG" id="9_vdcm2"]
 [ext_resource type="Texture2D" uid="uid://bajyw7r1cjeoc" path="res://assets/ui/calendarui/Shadow.PNG" id="10_6rmj2"]
+[ext_resource type="Texture2D" uid="uid://dsnk3femw5b5r" path="res://assets/ui/visdev/R2.PNG" id="10_8k7j3"]
+[ext_resource type="Texture2D" uid="uid://l7u5lc1mrlga" path="res://assets/ui/visdev/Paint Layer 3.PNG" id="11_jkdwc"]
 [ext_resource type="Script" uid="uid://dlfjqc218yfyb" path="res://scenes/image_display.gd" id="13_qsv74"]
 [ext_resource type="Texture2D" uid="uid://cc0eebm2l0wb5" path="res://assets/ui/guardbook.png" id="13_vsj0x"]
 
@@ -34,6 +37,13 @@ frame_2/texture = ExtResource("7_cgfq5")
 frame_2/duration = 1.0
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_qsv74"]
+frames = 3
+speed_scale = 5.0
+frame_0/texture = ExtResource("9_f7tlh")
+frame_1/texture = ExtResource("10_8k7j3")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("11_jkdwc")
+frame_2/duration = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktti3"]
 resource_local_to_scene = true
@@ -86,10 +96,10 @@ offset_bottom = 627.0
 texture = SubResource("AnimatedTexture_vsj0x")
 
 [node name="R_Fadeable" parent="." instance=ExtResource("5_cgfq5")]
-offset_left = 1172.0
-offset_top = 662.0
-offset_right = 1212.0
-offset_bottom = 702.0
+offset_left = 900.0
+offset_top = 384.0
+offset_right = 1156.0
+offset_bottom = 640.0
 texture = SubResource("AnimatedTexture_qsv74")
 
 [node name="Schedule Container" type="Control" parent="."]

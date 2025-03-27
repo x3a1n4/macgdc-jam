@@ -47,3 +47,4 @@ Built in three weeks for the 2025 MacGDC Jam"
 
 [node name="Winplayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_5j82o")
+autoplay = true

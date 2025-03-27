@@ -122,13 +122,25 @@ func _process(delta):
 			size.y = gameUI.snap_to_time(size.y + global_position.y) - global_position.y
 			EndTime = gameUI.snap_to_hour(size.y + global_position.y)
 	
+	# visual edit
+	if size.y < 70:
+		# hide elements
+		$VBoxContainer/TypeLabel.visible = false
+		$VBoxContainer/TimeLabel.visible = true
+	elif size.y < 50:
+		$VBoxContainer/TypeLabel.visible = false
+		$VBoxContainer/TimeLabel.visible = false
+	else:
+		$VBoxContainer/TypeLabel.visible = true
+		$VBoxContainer/TimeLabel.visible = true
+
+#endregion
 	# deletion
 	if Input.is_action_pressed("mouse_delete") and get_global_rect().has_point(mouse_pos):
 		Input.action_release("mouse_delete")
 		# delete
 		queue_free()
-
-#endregion
+		
 	#get_theme_stylebox("panel").duplicate()
 	old_mouse = mouse_pos
 

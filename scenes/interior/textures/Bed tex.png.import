@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bfwbcjdg7ic8l"
 path.s3tc="res://.godot/imported/Bed tex.png-2d9ebca1f2d8e06e957f422c6d89ae33.s3tc.ctex"
+path.etc2="res://.godot/imported/Bed tex.png-2d9ebca1f2d8e06e957f422c6d89ae33.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://scenes/interior/textures/Bed tex.png"
-dest_files=["res://.godot/imported/Bed tex.png-2d9ebca1f2d8e06e957f422c6d89ae33.s3tc.ctex"]
+dest_files=["res://.godot/imported/Bed tex.png-2d9ebca1f2d8e06e957f422c6d89ae33.s3tc.ctex", "res://.godot/imported/Bed tex.png-2d9ebca1f2d8e06e957f422c6d89ae33.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cx7va25c2rb6r"
 path.s3tc="res://.godot/imported/Inkwell tex.png-ce9f22ee015d486d5ff268e2501213e8.s3tc.ctex"
+path.etc2="res://.godot/imported/Inkwell tex.png-ce9f22ee015d486d5ff268e2501213e8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://scenes/interior/textures/Inkwell tex.png"
-dest_files=["res://.godot/imported/Inkwell tex.png-ce9f22ee015d486d5ff268e2501213e8.s3tc.ctex"]
+dest_files=["res://.godot/imported/Inkwell tex.png-ce9f22ee015d486d5ff268e2501213e8.s3tc.ctex", "res://.godot/imported/Inkwell tex.png-ce9f22ee015d486d5ff268e2501213e8.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dp1s50xp3vca8"
 path.s3tc="res://.godot/imported/interior_Blanket tex.png-ffc39fb7f3e7208c082ac4635cc979df.s3tc.ctex"
+path.etc2="res://.godot/imported/interior_Blanket tex.png-ffc39fb7f3e7208c082ac4635cc979df.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://scenes/interior/interior_Blanket tex.png"
-dest_files=["res://.godot/imported/interior_Blanket tex.png-ffc39fb7f3e7208c082ac4635cc979df.s3tc.ctex"]
+dest_files=["res://.godot/imported/interior_Blanket tex.png-ffc39fb7f3e7208c082ac4635cc979df.s3tc.ctex", "res://.godot/imported/interior_Blanket tex.png-ffc39fb7f3e7208c082ac4635cc979df.etc2.ctex"]
 
 [params]
 

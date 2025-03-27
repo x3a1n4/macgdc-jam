@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://hgn2j7ehclk0"
 path.s3tc="res://.godot/imported/sprite_0001.png-c5c0e5a98294d46043c51e6ecb47e6a4.s3tc.ctex"
+path.etc2="res://.godot/imported/sprite_0001.png-c5c0e5a98294d46043c51e6ecb47e6a4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/plants/foliage sprites/PNG/Flat/sprite_0001.png"
-dest_files=["res://.godot/imported/sprite_0001.png-c5c0e5a98294d46043c51e6ecb47e6a4.s3tc.ctex"]
+dest_files=["res://.godot/imported/sprite_0001.png-c5c0e5a98294d46043c51e6ecb47e6a4.s3tc.ctex", "res://.godot/imported/sprite_0001.png-c5c0e5a98294d46043c51e6ecb47e6a4.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://t1bq5123qjef"
 path.s3tc="res://.godot/imported/interior_Desk Texture Baked.png-4e7a84473a41d19e49f00b20b1bb81f0.s3tc.ctex"
+path.etc2="res://.godot/imported/interior_Desk Texture Baked.png-4e7a84473a41d19e49f00b20b1bb81f0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://scenes/interior/interior_Desk Texture Baked.png"
-dest_files=["res://.godot/imported/interior_Desk Texture Baked.png-4e7a84473a41d19e49f00b20b1bb81f0.s3tc.ctex"]
+dest_files=["res://.godot/imported/interior_Desk Texture Baked.png-4e7a84473a41d19e49f00b20b1bb81f0.s3tc.ctex", "res://.godot/imported/interior_Desk Texture Baked.png-4e7a84473a41d19e49f00b20b1bb81f0.etc2.ctex"]
 
 [params]
 

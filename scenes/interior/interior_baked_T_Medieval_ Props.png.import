@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c27y5m16p3m7a"
 path.s3tc="res://.godot/imported/interior_baked_T_Medieval_ Props.png-8948de3f792f3eb18d8ff5cd3f841eb4.s3tc.ctex"
+path.etc2="res://.godot/imported/interior_baked_T_Medieval_ Props.png-8948de3f792f3eb18d8ff5cd3f841eb4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://scenes/interior/interior_baked_T_Medieval_ Props.png"
-dest_files=["res://.godot/imported/interior_baked_T_Medieval_ Props.png-8948de3f792f3eb18d8ff5cd3f841eb4.s3tc.ctex"]
+dest_files=["res://.godot/imported/interior_baked_T_Medieval_ Props.png-8948de3f792f3eb18d8ff5cd3f841eb4.s3tc.ctex", "res://.godot/imported/interior_baked_T_Medieval_ Props.png-8948de3f792f3eb18d8ff5cd3f841eb4.etc2.ctex"]
 
 [params]
 

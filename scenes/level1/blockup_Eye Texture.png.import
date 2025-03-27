@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://gduv3fvh2ptu"
 path.s3tc="res://.godot/imported/blockup_Eye Texture.png-5c2c1b50b5a3c79d3c2b8f08134172b4.s3tc.ctex"
+path.etc2="res://.godot/imported/blockup_Eye Texture.png-5c2c1b50b5a3c79d3c2b8f08134172b4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://scenes/level1/blockup_Eye Texture.png"
-dest_files=["res://.godot/imported/blockup_Eye Texture.png-5c2c1b50b5a3c79d3c2b8f08134172b4.s3tc.ctex"]
+dest_files=["res://.godot/imported/blockup_Eye Texture.png-5c2c1b50b5a3c79d3c2b8f08134172b4.s3tc.ctex", "res://.godot/imported/blockup_Eye Texture.png-5c2c1b50b5a3c79d3c2b8f08134172b4.etc2.ctex"]
 
 [params]
 

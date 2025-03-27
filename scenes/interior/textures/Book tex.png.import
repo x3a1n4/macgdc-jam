@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cilk6ah3ue3yd"
 path.s3tc="res://.godot/imported/Book tex.png-f4fc348b070b41866cf283bb576dfb40.s3tc.ctex"
+path.etc2="res://.godot/imported/Book tex.png-f4fc348b070b41866cf283bb576dfb40.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://scenes/interior/textures/Book tex.png"
-dest_files=["res://.godot/imported/Book tex.png-f4fc348b070b41866cf283bb576dfb40.s3tc.ctex"]
+dest_files=["res://.godot/imported/Book tex.png-f4fc348b070b41866cf283bb576dfb40.s3tc.ctex", "res://.godot/imported/Book tex.png-f4fc348b070b41866cf283bb576dfb40.etc2.ctex"]
 
 [params]
 

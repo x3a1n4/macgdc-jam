@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://j8uwbw60f7je"
 path.s3tc="res://.godot/imported/interior_Bed tex.png-8eee9ee901b191b38b353e6506e0d168.s3tc.ctex"
+path.etc2="res://.godot/imported/interior_Bed tex.png-8eee9ee901b191b38b353e6506e0d168.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://scenes/interior/interior_Bed tex.png"
-dest_files=["res://.godot/imported/interior_Bed tex.png-8eee9ee901b191b38b353e6506e0d168.s3tc.ctex"]
+dest_files=["res://.godot/imported/interior_Bed tex.png-8eee9ee901b191b38b353e6506e0d168.s3tc.ctex", "res://.godot/imported/interior_Bed tex.png-8eee9ee901b191b38b353e6506e0d168.etc2.ctex"]
 
 [params]
 

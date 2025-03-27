@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ds57uof83h32q"
 path.s3tc="res://.godot/imported/interior_WallTextureBaked.png-8ee2811b1ff096979d899ba865867fcd.s3tc.ctex"
+path.etc2="res://.godot/imported/interior_WallTextureBaked.png-8ee2811b1ff096979d899ba865867fcd.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://scenes/interior/interior_WallTextureBaked.png"
-dest_files=["res://.godot/imported/interior_WallTextureBaked.png-8ee2811b1ff096979d899ba865867fcd.s3tc.ctex"]
+dest_files=["res://.godot/imported/interior_WallTextureBaked.png-8ee2811b1ff096979d899ba865867fcd.s3tc.ctex", "res://.godot/imported/interior_WallTextureBaked.png-8ee2811b1ff096979d899ba865867fcd.etc2.ctex"]
 
 [params]
 

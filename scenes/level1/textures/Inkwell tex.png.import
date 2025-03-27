@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://23kcmas1yqu5"
 path.s3tc="res://.godot/imported/Inkwell tex.png-d5d3dcc050f71c0d90467da70df557ca.s3tc.ctex"
+path.etc2="res://.godot/imported/Inkwell tex.png-d5d3dcc050f71c0d90467da70df557ca.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://scenes/level1/textures/Inkwell tex.png"
-dest_files=["res://.godot/imported/Inkwell tex.png-d5d3dcc050f71c0d90467da70df557ca.s3tc.ctex"]
+dest_files=["res://.godot/imported/Inkwell tex.png-d5d3dcc050f71c0d90467da70df557ca.s3tc.ctex", "res://.godot/imported/Inkwell tex.png-d5d3dcc050f71c0d90467da70df557ca.etc2.ctex"]
 
 [params]
 

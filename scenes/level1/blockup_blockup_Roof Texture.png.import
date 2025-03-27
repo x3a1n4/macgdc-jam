@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dwxhjng2vwd5v"
 path.s3tc="res://.godot/imported/blockup_blockup_Roof Texture.png-d1e73e93a1f9d224e89c40bc0d912672.s3tc.ctex"
+path.etc2="res://.godot/imported/blockup_blockup_Roof Texture.png-d1e73e93a1f9d224e89c40bc0d912672.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://scenes/level1/blockup_blockup_Roof Texture.png"
-dest_files=["res://.godot/imported/blockup_blockup_Roof Texture.png-d1e73e93a1f9d224e89c40bc0d912672.s3tc.ctex"]
+dest_files=["res://.godot/imported/blockup_blockup_Roof Texture.png-d1e73e93a1f9d224e89c40bc0d912672.s3tc.ctex", "res://.godot/imported/blockup_blockup_Roof Texture.png-d1e73e93a1f9d224e89c40bc0d912672.etc2.ctex"]
 
 [params]
 

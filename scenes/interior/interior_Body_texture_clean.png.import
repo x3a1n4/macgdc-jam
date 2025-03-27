@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://qwhqaqal1kox"
 path.s3tc="res://.godot/imported/interior_Body_texture_clean.png-df60711a087367fd37a10900850605c9.s3tc.ctex"
+path.etc2="res://.godot/imported/interior_Body_texture_clean.png-df60711a087367fd37a10900850605c9.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://scenes/interior/interior_Body_texture_clean.png"
-dest_files=["res://.godot/imported/interior_Body_texture_clean.png-df60711a087367fd37a10900850605c9.s3tc.ctex"]
+dest_files=["res://.godot/imported/interior_Body_texture_clean.png-df60711a087367fd37a10900850605c9.s3tc.ctex", "res://.godot/imported/interior_Body_texture_clean.png-df60711a087367fd37a10900850605c9.etc2.ctex"]
 
 [params]
 

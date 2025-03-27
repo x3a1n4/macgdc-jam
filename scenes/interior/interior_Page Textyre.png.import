@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bq24t0y4a7n81"
 path.s3tc="res://.godot/imported/interior_Page Textyre.png-60a6e4b1f1f8b5ebaeb9d2515b786358.s3tc.ctex"
+path.etc2="res://.godot/imported/interior_Page Textyre.png-60a6e4b1f1f8b5ebaeb9d2515b786358.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://scenes/interior/interior_Page Textyre.png"
-dest_files=["res://.godot/imported/interior_Page Textyre.png-60a6e4b1f1f8b5ebaeb9d2515b786358.s3tc.ctex"]
+dest_files=["res://.godot/imported/interior_Page Textyre.png-60a6e4b1f1f8b5ebaeb9d2515b786358.s3tc.ctex", "res://.godot/imported/interior_Page Textyre.png-60a6e4b1f1f8b5ebaeb9d2515b786358.etc2.ctex"]
 
 [params]
 

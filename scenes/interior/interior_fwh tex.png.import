@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cuba6blo586b5"
 path.s3tc="res://.godot/imported/interior_fwh tex.png-bc6b404f80d10d5096974a40a0c9b496.s3tc.ctex"
+path.etc2="res://.godot/imported/interior_fwh tex.png-bc6b404f80d10d5096974a40a0c9b496.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://scenes/interior/interior_fwh tex.png"
-dest_files=["res://.godot/imported/interior_fwh tex.png-bc6b404f80d10d5096974a40a0c9b496.s3tc.ctex"]
+dest_files=["res://.godot/imported/interior_fwh tex.png-bc6b404f80d10d5096974a40a0c9b496.s3tc.ctex", "res://.godot/imported/interior_fwh tex.png-bc6b404f80d10d5096974a40a0c9b496.etc2.ctex"]
 
 [params]
 

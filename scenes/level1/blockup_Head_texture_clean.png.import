@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqsggmckwco5s"
 path.s3tc="res://.godot/imported/blockup_Head_texture_clean.png-0f3034d86f0d4177766204d30baaab0c.s3tc.ctex"
+path.etc2="res://.godot/imported/blockup_Head_texture_clean.png-0f3034d86f0d4177766204d30baaab0c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://scenes/level1/blockup_Head_texture_clean.png"
-dest_files=["res://.godot/imported/blockup_Head_texture_clean.png-0f3034d86f0d4177766204d30baaab0c.s3tc.ctex"]
+dest_files=["res://.godot/imported/blockup_Head_texture_clean.png-0f3034d86f0d4177766204d30baaab0c.s3tc.ctex", "res://.godot/imported/blockup_Head_texture_clean.png-0f3034d86f0d4177766204d30baaab0c.etc2.ctex"]
 
 [params]
 

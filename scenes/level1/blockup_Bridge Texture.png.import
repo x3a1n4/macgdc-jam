@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dl1r6dgl24qsi"
 path.s3tc="res://.godot/imported/blockup_Bridge Texture.png-53c76691efb7aebbe1d2595b18d9eb5d.s3tc.ctex"
+path.etc2="res://.godot/imported/blockup_Bridge Texture.png-53c76691efb7aebbe1d2595b18d9eb5d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://scenes/level1/blockup_Bridge Texture.png"
-dest_files=["res://.godot/imported/blockup_Bridge Texture.png-53c76691efb7aebbe1d2595b18d9eb5d.s3tc.ctex"]
+dest_files=["res://.godot/imported/blockup_Bridge Texture.png-53c76691efb7aebbe1d2595b18d9eb5d.s3tc.ctex", "res://.godot/imported/blockup_Bridge Texture.png-53c76691efb7aebbe1d2595b18d9eb5d.etc2.ctex"]
 
 [params]
 

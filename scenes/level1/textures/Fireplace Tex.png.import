@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6b076jo6g4b8"
 path.s3tc="res://.godot/imported/Fireplace Tex.png-c688788012a6a721c1d5a02033537ffe.s3tc.ctex"
+path.etc2="res://.godot/imported/Fireplace Tex.png-c688788012a6a721c1d5a02033537ffe.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://scenes/level1/textures/Fireplace Tex.png"
-dest_files=["res://.godot/imported/Fireplace Tex.png-c688788012a6a721c1d5a02033537ffe.s3tc.ctex"]
+dest_files=["res://.godot/imported/Fireplace Tex.png-c688788012a6a721c1d5a02033537ffe.s3tc.ctex", "res://.godot/imported/Fireplace Tex.png-c688788012a6a721c1d5a02033537ffe.etc2.ctex"]
 
 [params]
 

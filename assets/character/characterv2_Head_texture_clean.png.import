@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dc8etfl2j0xd"
 path.s3tc="res://.godot/imported/characterv2_Head_texture_clean.png-03196ba4b83e160d17a3fc4f3ddfdf7d.s3tc.ctex"
+path.etc2="res://.godot/imported/characterv2_Head_texture_clean.png-03196ba4b83e160d17a3fc4f3ddfdf7d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/character/characterv2_Head_texture_clean.png"
-dest_files=["res://.godot/imported/characterv2_Head_texture_clean.png-03196ba4b83e160d17a3fc4f3ddfdf7d.s3tc.ctex"]
+dest_files=["res://.godot/imported/characterv2_Head_texture_clean.png-03196ba4b83e160d17a3fc4f3ddfdf7d.s3tc.ctex", "res://.godot/imported/characterv2_Head_texture_clean.png-03196ba4b83e160d17a3fc4f3ddfdf7d.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dbk2awkj33ypv"
 path.s3tc="res://.godot/imported/plants_Bark_NormalTree_Normal.png-ff084c432f043149567a3b0773978cea.s3tc.ctex"
+path.etc2="res://.godot/imported/plants_Bark_NormalTree_Normal.png-ff084c432f043149567a3b0773978cea.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/plants/plants_Bark_NormalTree_Normal.png"
-dest_files=["res://.godot/imported/plants_Bark_NormalTree_Normal.png-ff084c432f043149567a3b0773978cea.s3tc.ctex"]
+dest_files=["res://.godot/imported/plants_Bark_NormalTree_Normal.png-ff084c432f043149567a3b0773978cea.s3tc.ctex", "res://.godot/imported/plants_Bark_NormalTree_Normal.png-ff084c432f043149567a3b0773978cea.etc2.ctex"]
 
 [params]
 

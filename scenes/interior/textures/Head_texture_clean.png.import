@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcibdvalj0q13"
 path.s3tc="res://.godot/imported/Head_texture_clean.png-abdb9254a394ec90b8f4553ad5b7447f.s3tc.ctex"
+path.etc2="res://.godot/imported/Head_texture_clean.png-abdb9254a394ec90b8f4553ad5b7447f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://scenes/interior/textures/Head_texture_clean.png"
-dest_files=["res://.godot/imported/Head_texture_clean.png-abdb9254a394ec90b8f4553ad5b7447f.s3tc.ctex"]
+dest_files=["res://.godot/imported/Head_texture_clean.png-abdb9254a394ec90b8f4553ad5b7447f.s3tc.ctex", "res://.godot/imported/Head_texture_clean.png-abdb9254a394ec90b8f4553ad5b7447f.etc2.ctex"]
 
 [params]
 

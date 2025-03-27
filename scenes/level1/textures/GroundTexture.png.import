@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://csipnh0wrkg5x"
 path.s3tc="res://.godot/imported/GroundTexture.png-ee10cc1685d73d648ade36404439fc43.s3tc.ctex"
+path.etc2="res://.godot/imported/GroundTexture.png-ee10cc1685d73d648ade36404439fc43.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://scenes/level1/textures/GroundTexture.png"
-dest_files=["res://.godot/imported/GroundTexture.png-ee10cc1685d73d648ade36404439fc43.s3tc.ctex"]
+dest_files=["res://.godot/imported/GroundTexture.png-ee10cc1685d73d648ade36404439fc43.s3tc.ctex", "res://.godot/imported/GroundTexture.png-ee10cc1685d73d648ade36404439fc43.etc2.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://koq1yres26pm"]
+[gd_scene load_steps=24 format=3 uid="uid://koq1yres26pm"]
 
 [ext_resource type="Script" uid="uid://jmb2iurv240c" path="res://scripts/ui.gd" id="1_gdt2y"]
 [ext_resource type="Texture2D" uid="uid://duh4nfytpn40t" path="res://assets/ui/visdev/Wasd1.PNG" id="1_yev5y"]
@@ -45,19 +45,6 @@ frame_1/texture = ExtResource("10_8k7j3")
 frame_1/duration = 1.0
 frame_2/texture = ExtResource("11_jkdwc")
 frame_2/duration = 1.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktti3"]
-resource_local_to_scene = true
-bg_color = Color(0.838107, 0.76833, 0.558023, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgfq5"]
 resource_local_to_scene = true
@@ -131,18 +118,6 @@ offset_top = -3.0
 offset_right = 337.0
 offset_bottom = 3.0
 mouse_filter = 2
-
-[node name="CalendarElement" parent="Schedule Container/BG" instance=ExtResource("8_ktti3")]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 13.0
-offset_top = 11.0
-offset_right = -13.0
-offset_bottom = 88.0
-grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ktti3")
-type = "Sleeping"
 
 [node name="DummyEvent" parent="Schedule Container/BG" instance=ExtResource("8_ktti3")]
 visible = false
@@ -250,3 +225,4 @@ autoplay = true
 volume_db = -15.0
 
 [connection signal="pressed" from="Schedule Container/Button" to="." method="_on_button_pressed"]
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

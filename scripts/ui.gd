@@ -43,9 +43,9 @@ func _enter_tree():
 		$Music.stream = load("res://assets/audio/Polar Lights.wav")
 	
 	# instantiate tickmarkers
-	for i in range(1, 48):
+	for i in range(1, 47):
 		var new_node : HSeparator = $"Schedule Container/BG/TickMarker".duplicate()
-		new_node.position = $"Schedule Container/BG/TickMarker".position + Vector2.DOWN * $"Schedule Container/BG".size.y * i/48
+		new_node.position = $"Schedule Container/BG/TickMarker".position + Vector2.DOWN * $"Schedule Container/BG".size.y * i/47
 		$"Schedule Container/BG".add_child(new_node)
 		$"Schedule Container/BG".move_child(new_node, 0)
 		
@@ -60,13 +60,13 @@ func _process(delta):
 	if Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_back") or Input.is_action_pressed("move_forward"):
 		$WASD_Fadeable._start_fade_off()
 		
-	if Input.is_action_pressed("jump"):
+	if Input.is_action_just_pressed("jump"):
 		$Space_Fadeable._start_fade_off()
 	
-	if Input.is_action_pressed("open_schedule"):
+	if Input.is_action_just_pressed("open_schedule"):
 		$R_Fadeable._start_fade_off()
 	
-	if Input.is_action_pressed("open_schedule"):
+	if Input.is_action_just_pressed("open_schedule"):
 		Input.action_release("open_schedule")
 		
 		if is_schedule_open:
@@ -100,7 +100,7 @@ func _process(delta):
 		has_won = true
 
 func snap_to_time(height : float) -> float:
-	var minimal_height = -1
+	var minimal_height = hour_heights[0]
 	for h in hour_heights:
 		if abs(height-h) < abs(height-minimal_height):
 			minimal_height = h
@@ -117,3 +117,7 @@ func _on_button_pressed():
 	
 	new_event.position += Vector2.DOWN * 300
 	new_event.visible = true
+
+func _on_music_finished():
+	# loop
+	$Music.play()

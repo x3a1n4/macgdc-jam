@@ -14,7 +14,7 @@ var EndTime : float = 15.5
 var OnCalendar : bool = true
 
 #const TypeFormat = "[b]%s[/b]"
-const TimeFormat = "[p align=center][b]%d:%02d[/b]  -  [b]%d:%02d[/b]"
+const TimeFormat = "[p align=center][b]%d:%02d[/b] %s  -  [b]%d:%02d[/b] %s"
 
 var gameUI : Game_UI
 
@@ -33,7 +33,7 @@ var menuSelectedSound : AudioStream = load(
 )
 
 func _ready():
-	var popup : PopupMenu = $VBoxContainer/TypeLabel.get_popup()
+	var popup : PopupMenu = $BigBox/TypeLabel.get_popup()
 	popup.id_pressed.connect(_on_type_selected)
 
 	for i in range(1, len(CalendarType.names())):
@@ -65,15 +65,36 @@ var move_action_state : MoveAction = MoveAction.NONE
 var old_mouse : Vector2 = Vector2.ZERO
 func _process(delta):
 	var start_hour = fmod(floor(StartTime), 12)
-	if start_hour == 0: start_hour = 12
+	var start_type_am : bool = false
+	if StartTime < 13:
+		start_type_am = true
+	
+	if start_hour == 0: 
+		start_hour = 12
+		start_type_am = !start_type_am
+	
 	var start_minute = fmod(fmod(StartTime, 1), 12) * 60
+	
 	var end_hour = fmod(floor(EndTime), 12)
-	if end_hour == 0: end_hour = 12
+	
+	var end_type_am : bool = false
+	if EndTime < 13:
+		end_type_am = true
+	
+	if end_hour == 0: 
+		end_hour = 12
+		end_type_am = !end_type_am
+	
 	var end_minute = fmod(fmod(EndTime, 1), 12) * 60
 	
+	var start_type_text = "AM" if start_type_am else "PM"
+	var end_type_text = "AM" if end_type_am else "PM"
+	
 	get_theme_stylebox("panel").set("bg_color", CalendarType.from_name(type).colour)
-	$VBoxContainer/TypeLabel.text = type
-	$VBoxContainer/TimeLabel.text = TimeFormat % [start_hour, start_minute, end_hour, end_minute]
+	$BigBox/TypeLabel.text = type
+	$BigBox/TimeLabel.text = TimeFormat % [
+		start_hour, start_minute, start_type_text, 
+		end_hour, end_minute, end_type_text]
 	
 #region Resizing
 	
@@ -121,18 +142,22 @@ func _process(delta):
 			
 			size.y = gameUI.snap_to_time(size.y + global_position.y) - global_position.y
 			EndTime = gameUI.snap_to_hour(size.y + global_position.y)
+			
+			if size.y == 0: 
+				size.y = 15
+				EndTime += 0.5
 	
 	# visual edit
 	if size.y < 70:
 		# hide elements
-		$VBoxContainer/TypeLabel.visible = false
-		$VBoxContainer/TimeLabel.visible = true
+		$BigBox/TypeLabel.visible = false
+		$BigBox/TimeLabel.visible = true
 	elif size.y < 50:
-		$VBoxContainer/TypeLabel.visible = false
-		$VBoxContainer/TimeLabel.visible = false
+		$BigBox/TypeLabel.visible = false
+		$BigBox/TimeLabel.visible = false
 	else:
-		$VBoxContainer/TypeLabel.visible = true
-		$VBoxContainer/TimeLabel.visible = true
+		$BigBox/TypeLabel.visible = true
+		$BigBox/TimeLabel.visible = true
 
 #endregion
 	# deletion
@@ -148,7 +173,7 @@ func _process(delta):
 func duplicate_element(flags: int = 15) -> CalendarElement:
 	var new_event : CalendarElement = duplicate(flags)
 	new_event.set("theme_override_styles/panel", new_event.get_theme_stylebox("panel").duplicate(true))
-	new_event.get_node("VBoxContainer/TypeLabel").get_popup().clear()
+	new_event.get_node("BigBox/TypeLabel").get_popup().clear()
 	
 	return new_event
 

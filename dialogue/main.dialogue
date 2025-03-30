@@ -1,17 +1,20 @@
 ~ start
 Nathan: This is one of the stranger ruins we've encountered.
 Avery: That's why I'm here?
-Nathan: Yup. See if you can figure out when things happened .
+Nathan: Yup. Just [b][wave amp=25 freq=5]follow the path[/wave][/b] for now
+Nathan: See if you can figure out when things happened.
+do! Globals.hide_image() 
 => END
 
 ~ explain1030
-Avery: Do youwe know [i]anything[/i] about this place?
+Avery: Do we know [i]anything[/i] about this place?
 Nathan: Not much.
 Nathan: We recieved an extratemporal signal, and triangulated it to the city centre.\nIt's hard to pin down the year, but we know the time
 Nathan: [b][wave amp=25 freq=5]10:30 pm exactly.[/wave][/b]
 Nathan: Everything stopped at that exact moment.
 Avery: Strange.
 Nathan: Indeed.
+do! Globals.hide_image() 
 => END
 
 ~ gate
@@ -23,7 +26,14 @@ do! Globals.hide_image()
 
 ~ thedoorisopen
 Avery: Looks like this door is open.
-do! Globals.hide_image() 
+- Go in
+	do! Globals.Player_Position = Vector3(0.2, 4.6, -13)
+	do! Globals.Just_Teleported = 1
+	do! Globals.goto_scene("res://scenes/interior/interior.tscn")
+	=> END
+- Keep exploring
+	do! Globals.hide_image() 
+	=> END
 => END
 
 ~ tree
@@ -31,6 +41,7 @@ Nathan: Mmh. Yeah.
 Nathan: See, your problem is
 Nathan: that's a tree.
 Nathan: Not ruins. 
+do! Globals.hide_image() 
 => END
 
 ~ showspace

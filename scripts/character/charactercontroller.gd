@@ -1,6 +1,8 @@
 extends CharacterBody3D
 # Default script from godot!
 
+class_name PlayerCharacter
+
 @export_group("Movement")
 # How fast the player moves in meters per second.
 @export var ground_speed = 14
@@ -133,7 +135,7 @@ func _physics_process(delta):
 
 #region Jump and Glide
 	# buffer for jumping
-	if Input.is_action_pressed("jump"):
+	if Input.is_action_just_pressed("jump"):
 		$"Jump Buffer".start()
 		
 		Input.action_release("jump") # release jump
@@ -228,7 +230,6 @@ func _on_coyote_time_timeout() -> void:
 
 func _process(delta: float) -> void:
 	# manage camera
-	
 	if not lockedCamera:
 		camera.position = position + camera_offset
 
@@ -242,3 +243,8 @@ func _on_dialogue_start(resource: DialogueResource):
 	
 func _on_dialogue_end(resource: DialogueResource):
 	can_move = true
+
+func _die(die_position : Vector3) -> void:
+	# todo: make look nice
+	position = die_position
+	apply_floor_snap()

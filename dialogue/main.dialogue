@@ -96,10 +96,10 @@ else
 	Avery: I think I got it figured out.
 	Nathan: Great!
 	Nathan: This all looks good to me.
-	Nathan: Continue onwards. [wait=0.5]. See what else you can find.
+	Nathan: Continue onwards. [wait=0.5]See what else you can find.
 	Nathan: There's a whole valley waiting.
 	Avery: Will do.
-	do! Globals.win()
+	do Globals.win()
 do Globals.third_callstone += 1
 => END
 

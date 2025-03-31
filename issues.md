@@ -21,7 +21,7 @@ Playtest
 	
 	Wanted to see if it was the same inkblot on both
 	- Tried to look at the ink pot
-	Was looking for non-citizens 
+	Was looking for non-citizens
 	- Need to make the other points much more obscure and incorigable
 	- Need a confirm on the people coming in and people leaving
 	- Are the surnames anagrams
@@ -30,6 +30,27 @@ Playtest
 	
 	Make intakes not constrained to :15 increments
 	Make r input only show up once you interact with dead guy
+Playtest 2
+	Space bar shows up when you press space [tentatively fixed]
+	
+	- Dialogue crashes, debug stops the crashes [high]
+	- Can still trigger dialogue multiple times [medium]
+	- Missed the schedule input -- found it eventually, but lost it again
+	- Pain to move one-hour calendar elements [high]
+		- One hour element still looks silly
+		- Can't drag from the menu input
+		- Can't scale elements sometimes
+	- Win screen doesn't show [tentatively fixed]
+	- Jump path doesn't rotate with player
+	
+	- Keep calendar between scenes [tentatively fixed]
+	
+	- Felt like skeleton should be interactable [low]
+	
+	- Somehow triggered 1030 dialogue from the well
+	
+	- Liked how little guidance there was
+
 Todo: 
 	Add some sort of post (telephone post) where you can check in to see if you have more to find [tentatively fixed]
 	- This should be a reocurring element

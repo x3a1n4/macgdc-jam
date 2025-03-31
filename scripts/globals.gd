@@ -5,6 +5,8 @@ var Just_Teleported : int = 0
 
 var current_scene = null
 
+var calendar_children: Array[Array] # position, size, type
+
 func get_scene():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
@@ -81,16 +83,21 @@ var winfadetimer : SceneTreeTimer
 var win_ui
 func win():
 	get_scene()
-	win_ui = load("res://scenes/endscreen.tscn")
+	win_ui = load("res://scenes/endscreen.tscn") as PackedScene
+	win_ui = win_ui.instantiate()
 	for child in win_ui.get_children():
-		child.self_modulate.a = 0.0
+		if child is Control:
+			child.self_modulate.a = 0.0
 	current_scene.add_child(win_ui)
 	
 	winfadetimer = get_tree().create_timer(1)
 	winfadetimer.timeout.connect(win_scene) # hacky but what isn't
 
 func win_scene():
-	goto_scene("res://scenes/endscreen.tscn")
+	var player : PlayerCharacter = current_scene.find_child("Character", true, false)
+	player.can_move = false
+	winfadetimer = null
+	#goto_scene("res://scenes/endscreen.tscn")
 	
 var was_just_pressed = false
 func _process(delta):
@@ -103,7 +110,8 @@ func _process(delta):
 		
 	if winfadetimer:
 		for child in win_ui.get_children():
-			child.self_modulate.a = 1 - winfadetimer.time_left
+			if child is Control:
+				child.self_modulate.a = 1 - winfadetimer.time_left
 
 func goto_scene(path):
 	# This function will usually be called from a signal callback,

@@ -35,7 +35,7 @@ func _start_fade_on():
 	$FadeOnTime.start()
 
 func _start_fade_off():
-	if fade_state == Fade.OFF or fade_state == Fade.FADE_OFF: return
+	if fade_state == Fade.OFF or fade_state == Fade.FADE_OFF or fade_state == Fade.WAIT: return
 	
 	fade_state = Fade.FADE_OFF
 	$FadeOffTime.start()

@@ -50,6 +50,8 @@ func _enter_tree():
 		if child.name == "UI": # ehhhhh
 			gameUI = child
 			break
+			
+	size.x = 311 # hell
 	
 	if not gameUI:
 		push_error("Couldn't find gameUI")
@@ -66,24 +68,22 @@ var old_mouse : Vector2 = Vector2.ZERO
 func _process(delta):
 	var start_hour = fmod(floor(StartTime), 12)
 	var start_type_am : bool = false
-	if StartTime < 13:
+	if StartTime < 12:
 		start_type_am = true
 	
 	if start_hour == 0: 
 		start_hour = 12
-		start_type_am = !start_type_am
 	
 	var start_minute = fmod(fmod(StartTime, 1), 12) * 60
 	
 	var end_hour = fmod(floor(EndTime), 12)
 	
 	var end_type_am : bool = false
-	if EndTime < 13:
+	if EndTime < 12:
 		end_type_am = true
 	
 	if end_hour == 0: 
 		end_hour = 12
-		end_type_am = !end_type_am
 	
 	var end_minute = fmod(fmod(EndTime, 1), 12) * 60
 	
@@ -168,7 +168,6 @@ func _process(delta):
 		$BigBox/TypeLabel.visible = true
 		$BigBox/TimeLabel.visible = true
 		$SmallLabel.visible = false
-		
 
 #endregion
 	# deletion
@@ -180,6 +179,9 @@ func _process(delta):
 	#get_theme_stylebox("panel").duplicate()
 	old_mouse = mouse_pos
 
+func _exit_tree():
+	if name == "DummyEvent": return
+	Globals.calendar_children.append([position.y, size.y, type])
 
 func duplicate_element(flags: int = 15) -> CalendarElement:
 	var new_event : CalendarElement = duplicate(flags)

@@ -53,6 +53,24 @@ func _enter_tree():
 			new_node.self_modulate.a = 0.3
 		
 		hour_heights.append(new_node.global_position.y)
+	
+	# get calendar elements
+	print(Globals.calendar_children)
+	for child in Globals.calendar_children:
+		var new_event : CalendarElement = $"Schedule Container/BG/DummyEvent".duplicate_element()
+		
+		new_event.position.y = child[0]
+		new_event.size.y = child[1]
+		# magic numbers babeyyy
+		new_event.position.x = 13
+		new_event.type = child[2]
+		new_event.visible = true
+		
+		$"Schedule Container/BG".add_child(new_event)
+		
+		print(new_event.size.x)
+	
+	Globals.calendar_children = []
 
 func _process(delta):
 	var opacity = 0.0
@@ -84,6 +102,8 @@ func _process(delta):
 			$UI_Sound.stream = openSound
 			$UI_Sound.play()
 	$"Schedule Container".position = lerp($"Schedule Container".position, target_schedule_position, 0.1)
+	
+	# hack
 
 func check_win() -> bool:
 	# check calendar

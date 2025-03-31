@@ -96,6 +96,8 @@ func _process(delta):
 		start_hour, start_minute, start_type_text, 
 		end_hour, end_minute, end_type_text]
 	
+	$SmallLabel.text = $BigBox/TimeLabel.text
+	
 #region Resizing
 	
 	var mouse_pos : Vector2 = get_viewport().get_mouse_position()
@@ -126,6 +128,10 @@ func _process(delta):
 	else:
 		get_theme_stylebox("panel").set("border_width_bottom", default_border_size)
 	
+	# if dummy, return
+	if name == "DummyEvent":
+		return
+	
 	match move_action_state:
 		MoveAction.DRAG_TOP:
 			var oldy = position.y
@@ -148,16 +154,21 @@ func _process(delta):
 				EndTime += 0.5
 	
 	# visual edit
-	if size.y < 70:
+	if size.y < 30:
 		# hide elements
 		$BigBox/TypeLabel.visible = false
-		$BigBox/TimeLabel.visible = true
-	elif size.y < 50:
-		$BigBox/TypeLabel.visible = false
 		$BigBox/TimeLabel.visible = false
+		$SmallLabel.visible = true
+		
+	elif size.y < 70:
+		$BigBox/TypeLabel.visible = false
+		$BigBox/TimeLabel.visible = true
+		$SmallLabel.visible = false
 	else:
 		$BigBox/TypeLabel.visible = true
 		$BigBox/TimeLabel.visible = true
+		$SmallLabel.visible = false
+		
 
 #endregion
 	# deletion

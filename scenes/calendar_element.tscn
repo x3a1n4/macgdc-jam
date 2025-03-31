@@ -50,6 +50,19 @@ bbcode_enabled = true
 text = "[p align=center][b]9:99[/b]  -  [b]9:99[/b]"
 fit_content = true
 
+[node name="SmallLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -22.0
+grow_horizontal = 2
+theme = ExtResource("2_6fxwb")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
+text = "[p align=center][b]9:99[/b]  -  [b]9:99[/b]"
+fit_content = true
+
 [node name="UpperDragBox" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 10

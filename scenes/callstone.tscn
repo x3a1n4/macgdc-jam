@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://6uqtutj08y8d"]
+
+[ext_resource type="PackedScene" uid="uid://b1bngy6wwa0yv" path="res://scenes/models/call_collection.glb" id="1_b6fvi"]
+[ext_resource type="Script" uid="uid://cncpas1pjumt8" path="res://scripts/callstone.gd" id="1_rvfhb"]
+[ext_resource type="Texture2D" uid="uid://bwe8hi7gdpxow" path="res://assets/particles/particles/Explode.PNG" id="2_i2dpx"]
+
+[sub_resource type="Curve" id="Curve_b6fvi"]
+_data = [Vector2(0.442231, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_i2dpx"]
+curve = SubResource("Curve_b6fvi")
+
+[sub_resource type="Curve" id="Curve_3krb5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.599928), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rvfhb"]
+curve = SubResource("Curve_3krb5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3krb5"]
+emission_shape = 3
+emission_box_extents = Vector3(1, 2.35, 1)
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, -3, 0)
+scale_min = 2.0
+scale_max = 3.85
+scale_curve = SubResource("CurveTexture_rvfhb")
+color = Color(0.887685, 0.867997, 0.915484, 1)
+alpha_curve = SubResource("CurveTexture_i2dpx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvfhb"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_i2dpx")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+grow_amount = 10.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_ra3h3"]
+material = SubResource("StandardMaterial3D_rvfhb")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_i2dpx"]
+height = 2.90161
+radius = 2.4292
+
+[node name="Callstone" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_rvfhb")
+
+[node name="call_collection" parent="." instance=ExtResource("1_b6fvi")]
+
+[node name="Skeleton3D" parent="call_collection/Armature" index="1"]
+bones/0/scale = Vector3(0.0780731, 0.0780731, 0.0780731)
+bones/1/scale = Vector3(1, 0.438047, 1)
+bones/3/rotation = Quaternion(0.46536, 0.412887, 0.11027, 0.775116)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.84934, 0.33662)
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 0.9
+process_material = SubResource("ParticleProcessMaterial_3krb5")
+draw_pass_1 = SubResource("QuadMesh_ra3h3")
+
+[node name="GPUParticlesCollisionSphere3D" type="GPUParticlesCollisionSphere3D" parent="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.43098, 0)
+radius = 1.56281
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.335253, 1.33289, -0.432494)
+shape = SubResource("CylinderShape3D_i2dpx")
+
+[editable path="call_collection"]

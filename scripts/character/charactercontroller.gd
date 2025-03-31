@@ -167,12 +167,15 @@ func _physics_process(delta):
 	
 	# stop gliding!
 	if current_state == State.GLIDING:
+		$GlideParticles.emitting = true
 		# start falling when floorcast collides
 		if $Floorcast.is_colliding() or ($"Coyote Time".time_left == 0 and $"Jump Buffer".time_left > 0):
 			$AnimationTree.set("parameters/conditions/landing", true)
 			
 			# set state
 			current_state = State.FALLING
+	else:
+		$GlideParticles.emitting = false
 	
 	# jump movement
 	match current_state:
@@ -246,5 +249,12 @@ func _on_dialogue_end(resource: DialogueResource):
 
 func _die(die_position : Vector3) -> void:
 	# todo: make look nice
+	# emit particles
+	$DieParticles.emitting = true
+	# wait a sec
+	visible = false
+	await get_tree().create_timer(0.05).timeout
+	visible = true
+	# respawn
 	position = die_position
 	apply_floor_snap()

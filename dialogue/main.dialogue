@@ -6,6 +6,31 @@ Nathan: See if you can figure out when things happened.
 do! Globals.hide_image() 
 => END
 
+~ startcall
+if Globals.first_callstone == 0
+	do Globals.callstone()
+	[wait=1]
+	Avery: Can you hear me?
+	Nathan: Yup. All clear.
+	Nathan: This is one of the stranger ruins we've encountered.
+	Nathan: Just [b][wave amp=25 freq=5]follow the path[/wave][/b] for now
+	Nathan: See if you can figure out when things happened.
+elif Globals.first_callstone == 1
+	Avery: Don't mind me, just taking my time.
+	Nathan: Got it. There's no rush. The ruins will still be there.
+elif Globals.first_callstone == 2
+	Avery: Still here.
+	Nathan: I realize that.
+elif Globals.first_callstone == 3
+	Avery: Seen any good movies lately?
+	Nathan: You can't be doing this to me.
+else
+	Avery: [speed=3]...
+	Nathan: [speed=3]...
+do Globals.first_callstone += 1
+do Globals.hide_image() 
+=> END
+
 ~ explain1030
 Avery: Do we know [i]anything[/i] about this place?
 Nathan: Not much.
@@ -14,14 +39,88 @@ Nathan: [b][wave amp=25 freq=5]10:30 pm exactly.[/wave][/b]
 Nathan: Everything stopped at that exact moment.
 Avery: Strange.
 Nathan: Indeed.
-do! Globals.hide_image() 
+do Globals.hide_image() 
+=> END
+
+~ explain1030call
+do Globals.things_seen[0] = true
+if Globals.second_callstone == 0
+	do Globals.callstone()
+	[wait=1]
+	Avery: Do we know [i]anything[/i] about this place?
+	Nathan: Not much.
+	Nathan: We recieved an extratemporal signal, and triangulated it to the city centre.\nIt's hard to pin down the year, but we know the time
+	Nathan: [b][wave amp=25 freq=5]10:30 pm exactly.[/wave][/b]
+	Nathan: Everything stopped at that exact moment.
+	Avery: Strange.
+	Nathan: Indeed.
+elif Globals.second_callstone == 1
+	Avery: Anything else?
+	Nathan: Let me check the archives.
+	Nathan: [wave amp=25 freq=5][speed=3].....[/wave][wait=1]
+	Nathan: Looks like they were generally pretty insular, profited from trade and otherwise didn't do much.
+	Nathan: Built their infrastructure from the local limestone bed, standard-fare monarchy, no art of note.
+	Nathan: Ooh! A notable swine industry!
+	Nathan: To answer your question, no. Nothing else.
+elif Globals.second_callstone == 2
+	Avery: Anything else?
+	Nathan: I can check if I missed anything...
+	Nathan: [wave amp=25 freq=5][speed=3].....[/wave][wait=1]
+	Nathan: Nope. That's it. Got it all the first time.
+elif Globals.second_callstone == 3
+	Avery: Anything else?
+	Nathan: ...
+elif Globals.second_callstone == 4
+	Avery: Anything else?
+	Nathan: [wait=0.3]I'm turning this channel off.
+else
+	Avery: [speed=3]...
+	Nathan: [speed=3]...
+do Globals.second_callstone += 1
+do Globals.hide_image() 
+=> END
+
+~ puzzlecall
+if Globals.third_callstone == 0:
+	do Globals.callstone()
+	[wait=1]
+if not Globals.check_win()
+	if not Globals.all_things_seen()
+		Avery: Do I have everything?
+		Nathan: I think there's more to see.
+	else
+		Avery: Do I have everything?
+		Nathan: You've seen everything so far.
+		Nathan: But I don't think your schedule is quite right.
+else
+	Avery: I think I got it figured out.
+	Nathan: Great!
+	Nathan: This all looks good to me.
+	Nathan: Continue onwards. [wait=0.5]. See what else you can find.
+	Nathan: There's a whole valley waiting.
+	Avery: Will do.
+	do! Globals.win()
+do Globals.third_callstone += 1
 => END
 
 ~ gate
+do Globals.things_seen[1] = true
 Somehow, the lock still holds.[wait=0.5]
 The inscription reads\:
 "[b][wave amp=25 freq=5]Ambrosian Valley[/wave][/b] \n Do not enter without approval." 
 do! Globals.hide_image() 
+=> END
+
+~ wellwellwell
+Avery: Well well well...
+do! Globals.hide_image()
+=> END
+
+~ tornpage
+do Globals.things_seen[2] = true
+A windblown piece of paper.[wait=0.5]
+It reads\:
+"[b]Currently Out[/b] \n Please wait patiently for service to return." 
 => END
 
 ~ thedoorisopen

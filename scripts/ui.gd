@@ -84,20 +84,22 @@ func _process(delta):
 			$UI_Sound.stream = openSound
 			$UI_Sound.play()
 	$"Schedule Container".position = lerp($"Schedule Container".position, target_schedule_position, 0.1)
-	
+
+func check_win() -> bool:
 	# check calendar
 	var calendar : Array[Array] = []
 	for child in $"Schedule Container/BG".get_children():
 		if child is CalendarElement:
 			calendar.append([child.StartTime, child.EndTime, child.type])
+	
 	var winning : bool = true
 	for correct_element in win_con:
 		if correct_element not in calendar:
 			winning = false
 			break
 	if winning and not has_won:
-		var dialogue_line = DialogueManager.show_example_dialogue_balloon(win_dialogue, "start")
-		has_won = true
+		return true
+	return false
 
 func snap_to_time(height : float) -> float:
 	var minimal_height = hour_heights[0]

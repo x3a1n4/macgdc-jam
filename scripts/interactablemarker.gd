@@ -36,7 +36,7 @@ func _process(delta):
 	
 	if distance < close_range and can_interact:
 		opacity = 1.0
-		if Input.is_action_pressed("interact"):
+		if Input.is_action_just_pressed("interact"):
 			can_interact = false
 			DialogueManager.show_example_dialogue_balloon(dialogue_resource, starting_point)
 	else:
